@@ -51,6 +51,12 @@ public class Chairman {
         FH.savePersonToCSV(memberList);
     }
 
+    public void addMembersToMembersList() throws IOException{
+        for(Member member : FH.loadMembers()){
+            memberList.add(member);
+        }
+    }
+
 
     public void display(){
         if (memberList.isEmpty()) {
