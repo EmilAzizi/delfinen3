@@ -7,23 +7,27 @@ public class Controller {
     Chairman chairman = new Chairman();
 
     public void run() {
-        System.out.println("Welcome to delfinen.");
-        while(isRunning) {
-            System.out.println("""
-                Would you like to:
-                1. Add a new member?
-                2. Display existing members?
-                3. Sort existing members?
-                4. Display competing members with their trainer?
-                5. Display top swimmers?
-                0. Exit program.""");
+        try {
+            chairman.addMembersToMembersList();
+            System.out.println("Welcome to delfinen.");
+            while (isRunning) {
+                System.out.println("""
+                        Would you like to:
+                        1. Add a new member?
+                        2. Display existing members?
+                        3. Sort existing members?
+                        4. Display competing members with their trainer?
+                        5. Display top swimmers?
+                        0. Exit program.""");
 
-            running();
+                running();
+            }
+        } catch(IOException e){
+            e.getMessage();
         }
     }
 
-    private void running() {
-        try {
+    private void running() throws IOException {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1 -> {
@@ -35,9 +39,6 @@ public class Controller {
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
             }
-        } catch (IOException e){
-            e.getMessage();
-        }
     }
 }
 
