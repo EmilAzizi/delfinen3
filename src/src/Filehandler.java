@@ -33,8 +33,6 @@ public class Filehandler {
         output.close();
     }
 
-//    Emil , 23 , 22467868 , emilazizi@hotmail.com , competing , Jagtvej 120 , 14.5
-
     public ArrayList<Member> loadMembers() throws IOException {
         ArrayList<Member> members = new ArrayList<>();
         Scanner sc = new Scanner(f);
@@ -63,22 +61,3 @@ public class Filehandler {
         return members;
     }
 }
-
-//    public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
-//        this.age = age;
-//        this.name = name;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.activity = activity;
-//        this.address = address;
-//        this.swimmingTime = 0;
-//    }
-//    public Member(int age, String name, int phoneNumber, String email, String activity, double swimmingTime, String address) {
-//        this.age = age;
-//        this.name = name;
-//        this.phoneNumber = phoneNumber;
-//        this.email = email;
-//        this.activity = activity;
-//        this.address = address;
-//        this.swimmingTime = swimmingTime;
-//    }
