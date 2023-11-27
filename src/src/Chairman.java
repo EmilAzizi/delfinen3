@@ -51,11 +51,12 @@ public class Chairman {
         FH.savePersonToCSV(memberList);
     }
 
-    public void addMembersToMembersList() throws IOException{
-        for(Member member : FH.loadMembers()){
+    public void addMembersToMembersList() throws IOException {
+        for (Member member : FH.loadMembers()) {
             memberList.add(member);
         }
     }
+
 
 
     public void display(){
@@ -70,5 +71,9 @@ public class Chairman {
     }
     public ArrayList<Member> getMemberList(){
         return memberList;
+    }
+
+    public void loadMembers() throws IOException{
+        FH.loadMembers();
     }
 }

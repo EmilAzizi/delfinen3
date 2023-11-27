@@ -33,6 +33,7 @@ public class UserInterface {
 //            case 3 -> Collections.sort(chairman.getMemberList(), new SwimmingTimeComparator());
         }
         System.out.println("The members are now sorted! Press (X) to display the sorted list.");
+        chairman.display();
     }
 
     public void sortSwimmersByTwoAttributes(int userChoice1, int userChoice2) {

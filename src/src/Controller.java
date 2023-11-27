@@ -36,10 +36,13 @@ public class Controller {
                     chairman.createMemberList();
                 }
                 case 2 -> chairman.display();
-                case 3 -> {
+                case 6 -> {
                     ui.amountOfAttributes();
                 }
-                case 4 -> System.out.println("blah");
+                case 4 -> {
+                    System.out.println("load");
+                    chairman.loadMembers();
+                }
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
             }
