@@ -15,9 +15,10 @@ public class Controller {
                         Would you like to:
                         1. Add a new member?
                         2. Display existing members?
-                        3. Sort existing members?
+                        3. Display swimmers with their trainer?
                         4. Display competing members with their trainer?
                         5. Display top swimmers?
+                        6. Sort existing members?
                         0. Exit program.""");
 
                 running();
