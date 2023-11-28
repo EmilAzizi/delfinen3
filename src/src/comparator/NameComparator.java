@@ -1,4 +1,4 @@
-/*package comparator;
+package comparator;
 
 import member.Member;
 
@@ -14,5 +14,4 @@ public class NameComparator implements Comparator<Member> {
     }
 }
 
- */
 

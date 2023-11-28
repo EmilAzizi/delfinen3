@@ -8,6 +8,7 @@ public class Member {
     private String activity;
     private String address;
     private double swimmingTime;
+    private boolean isCompeting = false;
 
 
     public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
@@ -29,7 +30,13 @@ public class Member {
         this.swimmingTime = swimmingTime;
     }
 
+    public void setIsCompeting(){
+        isCompeting = true;
+    }
 
+    public boolean getIsCompeting(){
+        return isCompeting;
+    }
 
     public String getName(){
         return name;
