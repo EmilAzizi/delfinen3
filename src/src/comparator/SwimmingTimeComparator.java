@@ -1,4 +1,4 @@
-/*package comparator;
+package comparator;
 
 import member.Member;
 
@@ -12,6 +12,5 @@ public class SwimmingTimeComparator implements Comparator<Member> {
     }
 }
 
- */
 
 

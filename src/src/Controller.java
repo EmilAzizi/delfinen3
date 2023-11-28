@@ -18,9 +18,9 @@ public class Controller {
                 Would you like to:
                 1. Add a new member?
                 2. Display existing members?
-                3. Sort existing members?
-                4. Display competing members with their trainer?
-                5. Display top swimmers?
+                3. Display competing members with their trainer?
+                4. Display top swimmers?
+                5. Sort existing members?
                 0. Exit program.""");
 
             running();
@@ -38,6 +38,7 @@ public class Controller {
                 case 3 -> System.out.println("blih");
                 case 4 -> System.out.println("blah");
                 case 5 -> System.out.println("bluh");
+                case 6 -> UI.amountOfAttributes();
                 case 0 -> isRunning = false;
             }
         } catch (IOException e){
