@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
-    UserInterface ui = new UserInterface(this);
     boolean isRunning = true;
     Scanner sc = new Scanner(System.in).useLocale(Locale.US);
     Chairman chairman = new Chairman();
+    Trainer trainer = new Trainer(this);
+    UserInterface UI = new UserInterface(this);
+
 
     public void run() {
         try {
@@ -33,25 +35,30 @@ public class Controller {
     }
 
     private void running() throws IOException {
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1 -> {
-                    chairman.createMemberList();
-                }
-                case 2 -> chairman.display();
-                case 6 -> {
-                    ui.amountOfAttributes();
-                }
-                case 4 -> {
-                    System.out.println("load");
-                    chairman.loadMembers();
-                }
-                case 5 -> System.out.println("bluh");
-                case 0 -> isRunning = false;
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1 -> {
+                chairman.createMemberList();
             }
+            case 2 -> display();
+            case 3 -> trainer.displayMembersWithTrainer();
+            case 4 -> System.out.println("blah");
+            case 5 -> System.out.println("bluh");
+            case 6 -> UI.amountOfAttributes();
+            case 0 -> isRunning = false;
+        }
     }
-    public ArrayList<Member> getMemberList() {
+
+    public void display(){
+        for(Member member : getMemberList()){
+            UI.printMembers(member.getName(), member.getAge(), member.getAdress(), member.getPhoneNumber(), member.getEmail(),  member.getActivity(),  member.getSwimmingTime());
+
+        }
+    }
+
+    public ArrayList<Member> getMemberList(){
         return chairman.getMemberList();
     }
+
 }
 
