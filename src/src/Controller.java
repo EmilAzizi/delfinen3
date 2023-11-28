@@ -5,12 +5,10 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
-    UserInterface ui = new UserInterface();
+    UserInterface ui = new UserInterface(this);
     boolean isRunning = true;
     Scanner sc = new Scanner(System.in).useLocale(Locale.US);
     Chairman chairman = new Chairman();
-
-    Trainer trainer = new Trainer(this);
 
     public void run() {
         try {
@@ -41,13 +39,17 @@ public class Controller {
                     chairman.createMemberList();
                 }
                 case 2 -> chairman.display();
-                case 3 -> trainer.displayMembersWithTrainer();
-                case 4 -> System.out.println("blah");
+                case 6 -> {
+                    ui.amountOfAttributes();
+                }
+                case 4 -> {
+                    System.out.println("load");
+                    chairman.loadMembers();
+                }
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
             }
     }
-
     public ArrayList<Member> getMemberList() {
         return chairman.getMemberList();
     }
