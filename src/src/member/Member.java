@@ -65,16 +65,5 @@ public class Member {
         return address;
     }
 
-    @Override
-    public String toString() {
-        return "member.Member{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                ", activity='" + activity + '\'' +
-                ", address='" + address + '\'' +
-                ", swimmingTime=" + swimmingTime +
-                '}';
-    }
+
 }

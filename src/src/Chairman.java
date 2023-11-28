@@ -56,17 +56,6 @@ public class Chairman {
         }
     }
 
-
-    public void display(){
-        if (memberList.isEmpty()) {
-            System.out.println("No members to display.");
-        } else {
-            for (Member member : memberList) {
-                System.out.println(member);
-            }
-        }
-
-    }
     public ArrayList<Member> getMemberList(){
         return memberList;
     }
