@@ -1,15 +1,29 @@
+import java.util.ArrayList;
+
 import comparator.*;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
-
 public class UserInterface {
     Scanner input = new Scanner(System.in);
     Controller controller;
-    public UserInterface(Controller controller){
+
+    public UserInterface(Controller controller) {
         this.controller = controller;
     }
+
+
+
+
+    public void printMembers(String name, int age, String address, int phoneNumber, String email, String activity, double swimmingTime){
+        System.out.println("Name: " + name + ", " + "Age: " + age + ", " +
+                           "Address: " + address + ", " + "PhoneNumber: " + phoneNumber + ", " +
+                           "Email: " + email + ", " + "Activity: " + activity + ", " + "SwimmingTime: " + swimmingTime);
+
+
+    }
+
     public void amountOfAttributes() {
         System.out.println("""
                     Would you like to sort by one or two attributes?
@@ -64,7 +78,7 @@ public class UserInterface {
             case 2 -> comparator1 = new AgeComparator();
             case 3 -> comparator1 = new SwimmingTimeComparator();
             case 4 -> comparator1 = new ActivityComparator();
-            }
+        }
 
         switch (userChoice2) {
             case 1 -> comparator2 = new NameComparator();

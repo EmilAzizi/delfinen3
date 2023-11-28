@@ -8,10 +8,7 @@ public class Member {
     private String activity;
     private String address;
     private double swimmingTime;
-    private String competing;
-    private String competitionPlace;
-    private String competitionPlacement;
-    private String competitionTime;
+    private boolean isCompeting = false;
 
 
     public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
@@ -23,8 +20,6 @@ public class Member {
         this.address = address;
         this.swimmingTime = 0;
     }
-
-
     public Member(int age, String name, int phoneNumber, String email, String activity, double swimmingTime, String address) {
         this.age = age;
         this.name = name;
@@ -35,31 +30,12 @@ public class Member {
         this.swimmingTime = swimmingTime;
     }
 
-    // competing swimmer with competitions
-    public Member(int age, String name, int phoneNumber, String email, String competing, String activity, String address, String competitionPlace, String competitionPlacement, String competitionTime) {
-        this.age = age;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.activity = activity;
-        this.address = address;
-        this.swimmingTime = swimmingTime;
-        this.competing = competing;
-        this.competitionPlace = competitionPlace;
-        this.competitionPlacement = competitionPlacement;
-        this.competitionTime = competitionTime;
+    public void setIsCompeting(){
+        isCompeting = true;
     }
 
-    // competing swimmer with no competitions
-    public Member(int age, String name, int phoneNumber, String email, String competing, String activity, double swimmingTime, String address) {
-        this.age = age;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.activity = activity;
-        this.address = address;
-        this.swimmingTime = swimmingTime;
-        this.competing = competing;
+    public boolean getIsCompeting(){
+        return isCompeting;
     }
 
     public String getName(){
@@ -89,28 +65,5 @@ public class Member {
         return address;
     }
 
-    @Override
-    public String toString() {
-        return "member.Member{" +
-                "age=" + age +
-                ", name='" + name + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", email='" + email + '\'' +
-                ", activity='" + activity + '\'' +
-                ", address='" + address + '\'' +
-                ", swimmingTime=" + swimmingTime +
-                '}';
-    }
 
-    public String getCompeting() {
-        return competing;
-    }
-
-    public String getCompetitionPlace() {
-        return competitionPlace;
-    }
-
-    public String getCompetitionPlacement() {
-        return competitionPlacement;
-    }
 }
