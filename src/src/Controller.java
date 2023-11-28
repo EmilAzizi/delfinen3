@@ -41,9 +41,7 @@ public class Controller {
                     chairman.createMemberList();
                 }
                 case 2 -> chairman.display();
-                case 3 -> {
-                    trainer.displayMembersWithTrainer();
-                }
+                case 3 -> trainer.displayMembersWithTrainer();
                 case 4 -> System.out.println("blah");
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
