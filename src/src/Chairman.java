@@ -11,8 +11,6 @@ public class Chairman {
     Filehandler FH = new Filehandler("members.csv");
     private Member member;
     public Member createMember(){
-        input.nextLine();
-
         System.out.println("What is the name of the member?");
         String name = input.nextLine();
 
@@ -38,6 +36,7 @@ public class Chairman {
                 System.out.println("What is their swimming time?");
                 double swimmingTime = input.nextDouble();
                 member = new Member(age, name, number, email, activity, swimmingTime, address);
+                member.setIsCompeting();
             }
             default -> {
                 member = new Member(age, name, number, email, activity, address);
@@ -51,8 +50,11 @@ public class Chairman {
         FH.savePersonToCSV(memberList);
     }
 
-
-
+    public void addMembersToMembersList() throws IOException{
+        for(Member member : FH.loadMembers()){
+            memberList.add(member);
+        }
+    }
 
     public ArrayList<Member> getMemberList(){
         return memberList;
