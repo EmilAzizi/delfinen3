@@ -1,8 +1,11 @@
+import member.Member;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
-    UserInterface ui = new UserInterface();
+    UserInterface ui = new UserInterface(this);
     boolean isRunning = true;
     Scanner sc = new Scanner(System.in).useLocale(Locale.US);
     Chairman chairman = new Chairman();
@@ -46,6 +49,9 @@ public class Controller {
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
             }
+    }
+    public ArrayList<Member> getMemberList() {
+        return chairman.getMemberList();
     }
 }
 
