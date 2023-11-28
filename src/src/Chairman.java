@@ -80,10 +80,6 @@ public class Chairman {
         }
     }
 
-
-
-
-
     public ArrayList<Member> getMemberList(){
         return memberList;
     }
