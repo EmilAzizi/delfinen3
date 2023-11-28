@@ -38,6 +38,7 @@ public class Chairman {
                 System.out.println("What is their swimming time?");
                 double swimmingTime = input.nextDouble();
                 member = new Member(age, name, number, email, activity, swimmingTime, address);
+                member.setIsCompeting();
             }
             default -> {
                 member = new Member(age, name, number, email, activity, address);

@@ -1,4 +1,7 @@
+import member.Member;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
@@ -6,6 +9,8 @@ public class Controller {
     boolean isRunning = true;
     Scanner sc = new Scanner(System.in).useLocale(Locale.US);
     Chairman chairman = new Chairman();
+
+    Trainer trainer = new Trainer(this);
 
     public void run() {
         try {
@@ -37,12 +42,16 @@ public class Controller {
                 }
                 case 2 -> chairman.display();
                 case 3 -> {
-                    ui.amountOfAttributes();
+                    trainer.displayMembersWithTrainer();
                 }
                 case 4 -> System.out.println("blah");
                 case 5 -> System.out.println("bluh");
                 case 0 -> isRunning = false;
             }
+    }
+
+    public ArrayList<Member> getMemberList() {
+        return chairman.getMemberList();
     }
 }
 
