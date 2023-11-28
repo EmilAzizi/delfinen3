@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import member.Member;
 
@@ -11,3 +11,5 @@ public class AgeComparator implements Comparator<Member> {
         return Integer.compare(m1.getAge(), (m2.getAge()));
     }
 }
+
+ */

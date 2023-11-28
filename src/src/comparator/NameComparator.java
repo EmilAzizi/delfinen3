@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import member.Member;
 
@@ -13,3 +13,6 @@ public class NameComparator implements Comparator<Member> {
         return m1.getName().compareTo(m2.getName());
     }
 }
+
+ */
+
