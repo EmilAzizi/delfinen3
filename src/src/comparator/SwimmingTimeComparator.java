@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import member.Member;
 
@@ -11,3 +11,7 @@ public class SwimmingTimeComparator implements Comparator<Member> {
         return m1.getSwimmingTime().compareTo(m2.getSwimmingTime);
     }
 }
+
+ */
+
+

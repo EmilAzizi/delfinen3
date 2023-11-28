@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import java.util.Comparator;
 
@@ -9,3 +9,4 @@ public class ButterflyComparator implements Comparator<Member> {
         return m1.getSwimmingTime().compareTo(m2.getSwimmingTime);
     }
 }
+*/

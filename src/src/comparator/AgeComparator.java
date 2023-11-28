@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import .Member;
 import java.util.Comparator;
@@ -10,3 +10,7 @@ public class AgeComparator implements Comparator<> {
         return m1.get().compareTo(m2.getSwimmingTime);
     }
 }
+
+ */
+
+

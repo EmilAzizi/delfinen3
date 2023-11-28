@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -78,3 +78,6 @@ public class NameComparator implements Comparator<Member> {
         System.out.println("The members are now sorted! Press (X) to display the sorted list.");
     }
 }
+
+ */
+

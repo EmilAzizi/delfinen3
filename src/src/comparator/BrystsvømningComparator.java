@@ -1,4 +1,4 @@
-package comparator;
+/*package comparator;
 
 import java.lang.reflect.Member;
 import java.util.Comparator;
@@ -10,3 +10,4 @@ public class BrystsvømningComparator implements Comparator<Member> {
         return m1.get().compareTo(m2.getSwimmingTime);
     }
 }
+*/
