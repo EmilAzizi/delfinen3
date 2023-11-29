@@ -27,7 +27,8 @@ public class Filehandler {
                             member.getEmail() + " , " +
                             member.getActivity() + " , " +
                             member.getAdress() + " , " +
-                            member.getSwimmingTime();
+                            member.getSwimmingTime() + " , " +
+                            member.getActivityForm();
             output.println(line);
         }
         output.close();
@@ -49,9 +50,10 @@ public class Filehandler {
             String activity = attributes[4];
             String address = attributes[5];
             double swimmingTime = Double.parseDouble(attributes[6]);
+            String activityForm = attributes[7];
 
             switch(activity){
-                case "competing" -> loadMember = new Member(age, name, phoneNumber, email, activity, swimmingTime, address);
+                case "competing" -> loadMember = new Member(age, name, phoneNumber, email, activity, swimmingTime, address, activityForm);
                 default -> loadMember = new Member(age, name, phoneNumber, email, activity, address);
             }
 
