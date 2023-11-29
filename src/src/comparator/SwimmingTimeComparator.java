@@ -11,6 +11,3 @@ public class SwimmingTimeComparator implements Comparator<Member> {
         return Double.compare(m1.getSwimmingTime(), m2.getSwimmingTime());
     }
 }
-
-
-
