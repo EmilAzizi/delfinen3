@@ -9,6 +9,8 @@ public class Member {
     private String address;
     private double swimmingTime;
     private boolean isCompeting = false;
+    private String subscribtion;
+    private String activityForm;
 
 
     public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
@@ -19,8 +21,9 @@ public class Member {
         this.activity = activity;
         this.address = address;
         this.swimmingTime = 0;
+        this.activityForm = null;
     }
-    public Member(int age, String name, int phoneNumber, String email, String activity, double swimmingTime, String address) {
+    public Member(int age, String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm) {
         this.age = age;
         this.name = name;
         this.phoneNumber = phoneNumber;
@@ -28,7 +31,13 @@ public class Member {
         this.activity = activity;
         this.address = address;
         this.swimmingTime = swimmingTime;
+        this.activityForm = activityForm;
     }
+
+    /*public void setSubscribtion(){
+        switch (age){
+            case
+    }*/
 
     public void setIsCompeting(){
         isCompeting = true;
@@ -63,6 +72,9 @@ public class Member {
 
     public String getAdress() {
         return address;
+    }
+    public String getActivityForm(){
+        return activityForm;
     }
 
 

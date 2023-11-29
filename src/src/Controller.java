@@ -1,7 +1,9 @@
+import comparator.SwimmingTimeComparator;
 import member.Member;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
@@ -21,10 +23,9 @@ public class Controller {
                         Would you like to:
                         1. Add a new member?
                         2. Display existing members?
-                        3. Display swimmers with their trainer?
-                        4. Display competing members with their trainer?
-                        5. Display top swimmers?
-                        6. Sort existing members?
+                        3. Display competing members with their trainer?
+                        4. Display top swimmers?
+                        5. Sort existing members?
                         0. Exit program.""");
 
                 running();
@@ -39,19 +40,44 @@ public class Controller {
         switch (choice) {
             case 1 -> {
                 chairman.createMemberList();
+                Collections.sort(getMemberList(), new SwimmingTimeComparator());
             }
-            case 2 -> display();
+            case 2 -> {
+                System.out.println("Display: All members, senior or youth");
+                int displayChoice = chairman.giveScanner();
+                switch (displayChoice){
+                    case 1 -> display(displayChoice);
+                    case 2 -> display(displayChoice);
+                    case 3 -> display(displayChoice);
+                }
+            }
             case 3 -> trainer.displayMembersWithTrainer();
-            case 4 -> System.out.println("blah");
-            case 5 -> System.out.println("bluh");
-            case 6 -> UI.amountOfAttributes();
+            case 4 -> trainer.displayTopFiveSwimmers();
+            case 5 -> UI.amountOfAttributes();
             case 0 -> isRunning = false;
         }
     }
 
-    public void display(){
+    public void display(int choice){
         for(Member member : getMemberList()){
-            UI.printMembers(member.getName(), member.getAge(), member.getAdress(), member.getPhoneNumber(), member.getEmail(),  member.getActivity(),  member.getSwimmingTime());
+            switch (choice){
+                case 1 -> {
+                    UI.printMembers(member.getName(), member.getAge(), member.getAdress(), member.getPhoneNumber(), member.getEmail(),
+                            member.getActivity(),  member.getSwimmingTime(), member.getActivityForm());
+                }
+                case 2 -> {
+                    if(member.getAge() >= 18){
+                        UI.printMembers(member.getName(), member.getAge(), member.getAdress(), member.getPhoneNumber(), member.getEmail(),
+                                member.getActivity(),  member.getSwimmingTime(), member.getActivityForm());
+                    }
+                }
+                case 3 -> {
+                    if(member.getAge() < 18){
+                        UI.printMembers(member.getName(), member.getAge(), member.getAdress(), member.getPhoneNumber(), member.getEmail(),
+                                member.getActivity(),  member.getSwimmingTime(), member.getActivityForm());
+                    }
+                }
+            }
 
         }
     }
@@ -59,6 +85,5 @@ public class Controller {
     public ArrayList<Member> getMemberList(){
         return chairman.getMemberList();
     }
-
 }
 
