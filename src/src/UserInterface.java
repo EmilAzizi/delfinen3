@@ -15,13 +15,18 @@ public class UserInterface {
 
 
 
-
-    public void printMembers(String name, int age, String address, int phoneNumber, String email, String activity, double swimmingTime){
-        System.out.println("Name: " + name + ", " + "Age: " + age + ", " +
-                           "Address: " + address + ", " + "PhoneNumber: " + phoneNumber + ", " +
-                           "Email: " + email + ", " + "Activity: " + activity + ", " + "SwimmingTime: " + swimmingTime);
-
-
+// Work on progress
+    public void printMembers(String name, int age, String address, int phoneNumber, String email, String activity, double swimmingTime, String activityForm){
+        switch(activity){
+            case "competing" -> {
+                System.out.println("Name: " + name + ", " + "Age: " + age + ", " +
+                        "Address: " + address + ", " + "PhoneNumber: " + phoneNumber + ", " +
+                        "Email: " + email + ", " + "Activity: " + activity + ", " + "Activity form: " + activityForm + ", " + "SwimmingTime: " + swimmingTime);
+            }
+            default -> System.out.println("Name: " + name + ", " + "Age: " + age + ", " +
+                    "Address: " + address + ", " + "PhoneNumber: " + phoneNumber + ", " +
+                    "Email: " + email + ", " + "Activity: " + activity + ", " + "SwimmingTime: " + swimmingTime);
+        }
     }
 
     public void amountOfAttributes() {

@@ -28,19 +28,40 @@ public class Chairman {
         System.out.println("Address?");
         String address = input.nextLine();
 
-        System.out.println("Activity");
-        String activity = input.next().toLowerCase();
+        System.out.println("Activity" +
+                "You can choose the following:" +
+                "1. Competing." +
+                "2. Motionist.");
+        int activityChoice = input.nextInt();
+        String activity = null;
+        switch(activityChoice){
+            case 1 -> activity = "competing";
+            case 2 -> activity = "motionist";
+        }
 
         switch(activity){
             case "competing" -> {
-                System.out.println("What is their swimming time?");
-                double swimmingTime = input.nextDouble();
-                member = new Member(age, name, number, email, activity, swimmingTime, address);
+                System.out.println("What discipline are they currently active in?" +
+                        "You can only choose the following disciplines:" +
+                        "1. Butterfly." +
+                        "2. Crawl." +
+                        "3. Rygcrawl" +
+                        "4. Brystsvømning.");
+                int formChoice = input.nextInt();
+                String activityForm = null;
+                switch(formChoice){
+                    case 1 -> activityForm = "butterfly";
+                    case 2 -> activityForm = "crawl";
+                    case 3 -> activityForm = "rygcrawl";
+                    case 4 -> activityForm = "brystsvømning";
+                }
+
+                System.out.println("What is their best swimming time?");
+                Double swimmingTime = input.nextDouble();
+                member = new Member(age, name, number, email, activity, swimmingTime, address, activityForm);
                 member.setIsCompeting();
             }
-            default -> {
-                member = new Member(age, name, number, email, activity, address);
-            }
+            default -> member = new Member(age, name, number, email, activity, address);
         }
         return member;
     }
@@ -58,5 +79,9 @@ public class Chairman {
 
     public ArrayList<Member> getMemberList(){
         return memberList;
+    }
+    public int giveScanner(){
+        Scanner choice = new Scanner(System.in);
+        return choice.nextInt();
     }
 }
