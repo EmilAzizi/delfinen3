@@ -1,5 +1,10 @@
+package domain;
+
 import comparator.SwimmingTimeComparator;
-import member.Member;
+import domain.Chairman;
+import domain.Member;
+import domain.Trainer;
+import ui.UserInterface;
 
 import java.io.IOException;
 import java.util.ArrayList;

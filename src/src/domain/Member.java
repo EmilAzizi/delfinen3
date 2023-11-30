@@ -1,4 +1,4 @@
-package member;
+package domain;
 
 public class Member {
     private int age;
@@ -12,6 +12,7 @@ public class Member {
     private String subscribtion;
     private String activityForm;
 
+    // TODO Tilføj fødselsdato
 
     public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
         this.age = age;
