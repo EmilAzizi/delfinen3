@@ -16,6 +16,8 @@ public class Chairman {
 
     // TODO alt UI materialle flyttes til ui.UserInterface
     public Member createMember(){
+        input.nextLine();
+
         System.out.println("What is the name of the member?");
         String name = input.nextLine();
 
