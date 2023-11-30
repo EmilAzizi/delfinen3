@@ -11,6 +11,8 @@ public class Chairman {
     Filehandler FH = new Filehandler("members.csv");
     private Member member;
     public Member createMember(){
+        input.nextLine();
+
         System.out.println("What is the name of the member?");
         String name = input.nextLine();
 
