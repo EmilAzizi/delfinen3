@@ -1,7 +1,8 @@
-import member.Member;
+package data;
+
+import domain.Member;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;

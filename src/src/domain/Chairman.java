@@ -1,4 +1,6 @@
-import member.Member;
+package domain;
+
+import domain.Member;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,11 +8,16 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Chairman {
+    // TODO flyttes til en database klasse
     private ArrayList<Member> memberList = new ArrayList<>();
     private Scanner input = new Scanner(System.in).useLocale(Locale.US);
     Filehandler FH = new Filehandler("members.csv");
     private Member member;
+
+    // TODO alt UI materialle flyttes til ui.UserInterface
     public Member createMember(){
+        input.nextLine();
+
         System.out.println("What is the name of the member?");
         String name = input.nextLine();
 
