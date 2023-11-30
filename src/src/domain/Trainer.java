@@ -1,10 +1,14 @@
+package domain;
+
 import comparator.SwimmingTimeComparator;
-import member.Member;
+import domain.Member;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Trainer {
+
+    // TODO refactorer til database klasse
 
     ArrayList<Member> competingUnderAge = new ArrayList<>();
     ArrayList<Member> competingAboveAge = new ArrayList<>();
