@@ -1,7 +1,10 @@
 package domain;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Member {
-    private int age;
+    private int age = 0;
     private String name;
     private int phoneNumber;
     private String email;
@@ -11,11 +14,13 @@ public class Member {
     private boolean isCompeting = false;
     private String subscribtion;
     private String activityForm;
-
-    // TODO Tilføj fødselsdato
-
-    public Member(int age, String name, int phoneNumber, String email, String activity, String address) {
-        this.age = age;
+    private int day;
+    private int month;
+    private int year;
+    public Member(String name, int phoneNumber, String email, String activity, String address, int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -24,8 +29,10 @@ public class Member {
         this.swimmingTime = 0;
         this.activityForm = null;
     }
-    public Member(int age, String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm) {
-        this.age = age;
+    public Member(String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm, int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -53,6 +60,11 @@ public class Member {
     }
 
     public int getAge(){
+        LocalDate localDate = LocalDate.now();
+        LocalDate birthdate = LocalDate.of(year, month, day);
+        Period period = Period.between(birthdate, localDate);
+        age = period.getYears();
+
         return age;
     }
     public int getPhoneNumber(){
@@ -77,6 +89,13 @@ public class Member {
     public String getActivityForm(){
         return activityForm;
     }
-
-
+    public int getDay() {
+        return day;
+    }
+    public int getMonth() {
+        return month;
+    }
+    public int getYear() {
+        return year;
+    }
 }
