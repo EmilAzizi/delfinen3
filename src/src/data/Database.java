@@ -2,10 +2,7 @@ package data;
 
 import comparator.SwimmingTimeComparator;
 import data.Filehandler;
-import domain.Controller;
-import domain.Member;
-import domain.Team;
-import domain.Trainer;
+import domain.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +24,7 @@ public class Database {
     private final int adultAge = 18;
     ArrayList<Member> competingUnderAge = new ArrayList<>();
     ArrayList<Member> competingAboveAge = new ArrayList<>();
+    private Subscribtion subscribtion = new Subscribtion(memberList);
 
     public Database(Controller controller) {
         this.controller = controller;
@@ -242,16 +240,38 @@ public class Database {
         }
     }
 
-    // TODO trænere skal ikke være inkluderet
     public void displayTopFiveSwimmers () {
         int count = 0;
         Collections.sort(controller.getMemberList(), new SwimmingTimeComparator());
         for (Member member : controller.getMemberList()) {
-            count++;
-            System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getSwimmingTime());
-            if (count >= 5) {
-                break;
+            if(member.getActivity().equals("competing")){
+                count++;
+                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getSwimmingTime());
+                if (count >= 5) {
+                    break;
+                }
             }
+        }
+    }
+
+    public void calculatePrice(){
+        subscribtion.assignSubscribtion();
+        subscribtion.assignPriceToSubscribtion();
+    }
+
+    public void viewPrices(){
+        calculatePrice();
+        System.out.println("Senior price individual: " + subscribtion.getSeniorPrice() + ", Total senior price: " + subscribtion.getSeniorPriceTotal());
+        for(Member member : subscribtion.getSenior()){
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
+        }
+        System.out.println("Junior price individual: " + subscribtion.getJuniorPrice() + ", Total senior price: " + subscribtion.getJuniorPriceTotal());
+        for(Member member : subscribtion.getJunior()){
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
+        }
+        System.out.println("Passive price individual: " + subscribtion.getPassivePrice() + ", Total senior price: " + subscribtion.getPassivePriceTotal());
+        for(Member member : subscribtion.getPassive()){
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
         }
     }
 }
