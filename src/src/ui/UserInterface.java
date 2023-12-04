@@ -146,8 +146,10 @@ public class UserInterface {
         System.out.println("Activity" +
                 "You can choose the following:" +
                 "1. Competing." +
-                "2. Motionist.");
+                "2. Motionist." +
+                "3. Passive.");
     }
+
 
     public void whatDisciplineAreTheyCurrentlyActiveIn() {
         System.out.println("What discipline are they currently active in?" +
