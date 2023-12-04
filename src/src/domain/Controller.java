@@ -50,7 +50,8 @@ public class Controller {
             case 4 -> database.assignTrainer();
             case 5 -> database.displayMembersWithTrainer();
             case 6 -> database.displayTopFiveSwimmers();
-            case 7 -> UI.amountOfAttributes();
+            case 7 -> database.viewPrices();
+            case 8 -> UI.amountOfAttributes();
             case 0 -> isRunning = false;
         }
     }
