@@ -29,7 +29,8 @@ public class Controller {
                         4. Assign trainer to a team.
                         5. Display competing members with their trainer.
                         6. Display top swimmers?
-                        7. Sort existing members?
+                        7. View subscribtion prices
+                        8. Sort existing members?
                         0. Exit program.""");
 
                 running();
@@ -59,7 +60,8 @@ public class Controller {
             case 4 -> database.assignTrainer();
             case 5 -> database.displayMembersWithTrainer();
             case 6 -> database.displayTopFiveSwimmers();
-            case 7 -> UI.amountOfAttributes();
+            case 7 -> database.viewPrices();
+            case 8 -> UI.amountOfAttributes();
             case 0 -> isRunning = false;
         }
     }
