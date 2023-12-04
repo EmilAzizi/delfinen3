@@ -181,7 +181,9 @@ public class Controller {
         UI.subscribtionPassiveNameAndAge(name, age);
     }
 
-
+    public void getSupsciptionTotalPriceFromUI(int totalPrice){
+        UI.subscriptionTotalPriceMessage(totalPrice);
+    }
 
 
 }

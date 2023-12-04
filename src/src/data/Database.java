@@ -109,18 +109,19 @@ public class Database {
         controller.whatIsTheBirthdateTrainerFromUI();
         String date = input.next();
         String[] birthdate = date.split("/");
-        String[] checkForZero = birthdate[0].split("");
+        String[] checkForZeroDay = birthdate[0].split("");
+        String[] checkForZeroMonth = birthdate[1].split("");
 
         int day;
-        if (checkForZero[0].equals("0")) {
-            day = Integer.parseInt(checkForZero[1]);
+        if (checkForZeroDay[0].equals("0")) {
+            day = Integer.parseInt(checkForZeroDay[1]);
         } else {
             day = Integer.parseInt(birthdate[0]);
         }
 
         int month;
-        if (checkForZero[0].equals("0")) {
-            month = Integer.parseInt(checkForZero[1]);
+        if (checkForZeroMonth[0].equals("0")) {
+            month = Integer.parseInt(checkForZeroMonth[1]);
         } else {
             month = Integer.parseInt(birthdate[0]);
         }
@@ -276,6 +277,6 @@ public class Database {
             controller.subscribtionPassiveNameAndAgeFromUI(member.getName(), member.getAge());
         }
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
-        System.out.println("Delfinens total annual income: " + totalPriceAll);
+        controller.getSupsciptionTotalPriceFromUI(totalPriceAll);
     }
 }

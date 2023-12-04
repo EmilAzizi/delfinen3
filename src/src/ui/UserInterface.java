@@ -228,7 +228,9 @@ public class UserInterface {
         System.out.println("Name: " + name + ". Age: " + age);
     }
 
-
+    public void subscriptionTotalPriceMessage(int totalPrice){
+        System.out.println("Delfinens total annual income: " + totalPrice);
+    }
 
 
 
