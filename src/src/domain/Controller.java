@@ -19,18 +19,9 @@ public class Controller {
     public void run() {
         try {
             database.addMembersToMembersList();
-            System.out.println("Welcome to delfinen.");
+            UI.welcomeToDelfin();
             while (isRunning) {
-                System.out.println("""
-                        Would you like to:
-                        1. Add a new member.
-                        2. Add a new trainer.
-                        3. Display existing members.
-                        4. Assign trainer to a team.
-                        5. Display competing members with their trainer.
-                        6. Display top swimmers?
-                        7. Sort existing members?
-                        0. Exit program.""");
+                UI.mainMenu();
 
                 running();
             }
@@ -48,7 +39,7 @@ public class Controller {
             }
             case 2 -> database.addTrainerToList();
             case 3 -> {
-                System.out.println("Display: All members, senior or youth");
+                UI.displayAllMembersSeniorOrYouth();
                 int displayChoice = database.giveScanner();
                 switch (displayChoice){
                     case 1 -> display(displayChoice);
@@ -59,7 +50,8 @@ public class Controller {
             case 4 -> database.assignTrainer();
             case 5 -> database.displayMembersWithTrainer();
             case 6 -> database.displayTopFiveSwimmers();
-            case 7 -> UI.amountOfAttributes();
+            case 7 -> database.viewPrices();
+            case 8 -> UI.amountOfAttributes();
             case 0 -> isRunning = false;
         }
     }
@@ -91,5 +83,82 @@ public class Controller {
     public ArrayList<Member> getMemberList(){
         return database.getMemberList();
     }
+
+
+    public void whatIsTheNameOfTheMemberFromUI() {
+        UI.whatIsTheNameOfTheMember();
+    }
+
+    public void whatIsTheBirthdateMemberFromUI() {
+        UI.whatIsTheBirthdateMember();
+    }
+
+    public void phoneNumberMemberFromUI() {
+        UI.phoneNumberMember();
+    }
+
+    public void emailMemberFromUI() {
+        UI.emailMember();
+    }
+
+    public void addressMemberFromUI() {
+        UI.addressMember();
+    }
+
+    public void activityYouCanChooseTheFollowingCompetingOrMotionistFromUI() {
+        UI.activityYouCanChooseTheFollowingCompetingOrMotionist();
+    }
+
+    public void whatDisciplineAreTheyCurrentlyActiveInFromUI() {
+        UI.whatDisciplineAreTheyCurrentlyActiveIn();
+    }
+
+    public void whatIsTheirBestSwimmingTimeFromUI() {
+        UI.whatIsTheirBestSwimmingTime();
+    }
+
+    public void whatIsTheNameOfTheTrainerFromUI() {
+        UI.whatIsTheNameOfTheTrainer();
+    }
+
+    public void whatIsTheBirthdateTrainerFromUI() {
+        UI.whatIsTheBirthdateTrainer();
+    }
+
+    public void phoneNumberTrainerFromUI() {
+        UI.phoneNumberTrainer();
+    }
+
+    public void emailTrainerFromUI() {
+        UI.emailTrainer();
+    }
+
+    public void addressTrainerFromUI() {
+        UI.addressTrainer();
+    }
+
+    public void noneFromUI() {
+        UI.none();
+    }
+
+    public void whichTrainerWouldYouLikeToAssignFromUI() {
+        UI.whichTrainerWouldYouLikeToAssign();
+    }
+
+    public void oneSeniorFromUI() {
+        UI.oneSenior();
+    }
+
+    public void secondJuniorFromUI() {
+        UI.secondJunior();
+    }
+
+    public void whichTeamWouldYouLikeToAssignToFromUI(String name) {
+        UI.whichTeamWouldYouLikeToAssignTo(name);
+    }
+
+
+
+
 }
 
