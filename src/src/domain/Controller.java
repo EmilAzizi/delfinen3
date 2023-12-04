@@ -157,6 +157,30 @@ public class Controller {
         UI.whichTeamWouldYouLikeToAssignTo(name);
     }
 
+    public void seniorPriceIndividualAndTotalFromUI(int seniorPrice, int seniorPriceTotal) {
+        UI.seniorPriceIndividualAndTotal(seniorPrice, seniorPriceTotal);
+    }
+
+    public void subscriptionSeniorNameAndAgeFromUI(String name, int age) {
+        UI.subscriptionSeniorNameAndAge(name, age);
+    }
+
+    public void juniorPriceIndividualAndTotalFromUI(int juniorPrice, int juniorPriceTotal) {
+        UI.juniorPriceIndividualAndTotal(juniorPrice, juniorPriceTotal);
+    }
+
+    public void subscriptionJuniorNameAndAgeFromUI(String name, int age) {
+        UI.subscriptionJuniorNameAndAge(name, age);
+    }
+
+    public void passivePriceIndividualAndTotalFromUI(int passivePrice, int passivePriceTotal) {
+        UI.passivePriceIndividualAndTotal(passivePrice, passivePriceTotal);
+    }
+
+    public void subscribtionPassiveNameAndAgeFromUI(String name, int age) {
+        UI.subscribtionPassiveNameAndAge(name, age);
+    }
+
 
 
 
