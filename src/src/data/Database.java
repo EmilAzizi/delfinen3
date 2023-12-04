@@ -261,17 +261,17 @@ public class Database {
 
     public void viewPrices(){
         calculatePrice();
-        System.out.println("Senior price individual: " + subscribtion.getSeniorPrice() + ", Total senior price: " + subscribtion.getSeniorPriceTotal());
+        controller.seniorPriceIndividualAndTotalFromUI(subscribtion.getSeniorPrice(), subscribtion.getSeniorPriceTotal());
         for(Member member : subscribtion.getSenior()){
-            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
+            controller.subscriptionSeniorNameAndAgeFromUI(member.getName(), member.getAge());
         }
-        System.out.println("Junior price individual: " + subscribtion.getJuniorPrice() + ", Total senior price: " + subscribtion.getJuniorPriceTotal());
+        controller.juniorPriceIndividualAndTotalFromUI(subscribtion.getJuniorPrice(), subscribtion.getJuniorPriceTotal());
         for(Member member : subscribtion.getJunior()){
-            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
+            controller.subscriptionJuniorNameAndAgeFromUI(member.getName(), member.getAge());
         }
-        System.out.println("Passive price individual: " + subscribtion.getPassivePrice() + ", Total senior price: " + subscribtion.getPassivePriceTotal());
+        controller.passivePriceIndividualAndTotalFromUI(subscribtion.getPassivePrice(), subscribtion.getPassivePriceTotal());
         for(Member member : subscribtion.getPassive()){
-            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
+            controller.subscribtionPassiveNameAndAgeFromUI(member.getName(), member.getAge());
         }
     }
 }
