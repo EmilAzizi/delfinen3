@@ -1,7 +1,8 @@
-import member.Member;
+package data;
+
+import domain.Member;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -22,7 +23,9 @@ public class Filehandler {
         for (Member member : memberList) {
             String line =
                     member.getName() + " , " +
-                            member.getAge() + " , " +
+                            member.getDay() + " , " +
+                            member.getMonth() + " , " +
+                            member.getYear() + " , " +
                             member.getPhoneNumber() + " , " +
                             member.getEmail() + " , " +
                             member.getActivity() + " , " +
@@ -44,17 +47,19 @@ public class Filehandler {
             String[] attributes = line.split(" , ");
 
             String name = attributes[0];
-            int age = Integer.parseInt(attributes[1]);
-            int phoneNumber  = Integer.parseInt(attributes[2]);
-            String email = attributes[3];
-            String activity = attributes[4];
-            String address = attributes[5];
-            double swimmingTime = Double.parseDouble(attributes[6]);
-            String activityForm = attributes[7];
+            int day = Integer.parseInt(attributes[1]);
+            int month = Integer.parseInt(attributes[2]);
+            int year = Integer.parseInt(attributes[3]);
+            int phoneNumber  = Integer.parseInt(attributes[4]);
+            String email = attributes[5];
+            String activity = attributes[6];
+            String address = attributes[7];
+            double swimmingTime = Double.parseDouble(attributes[8]);
+            String activityForm = attributes[9];
 
             switch(activity){
-                case "competing" -> loadMember = new Member(age, name, phoneNumber, email, activity, swimmingTime, address, activityForm);
-                default -> loadMember = new Member(age, name, phoneNumber, email, activity, address);
+                case "competing" -> loadMember = new Member(name, phoneNumber, email, activity, swimmingTime, address, activityForm, day, month, year);
+                default -> loadMember = new Member(name, phoneNumber, email, activity, address, day, month, year);
             }
 
             members.add(loadMember);

@@ -1,6 +1,6 @@
 package comparator;
 
-import member.Member;
+import domain.Member;
 
 import java.util.Comparator;
 
