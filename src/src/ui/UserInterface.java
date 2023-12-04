@@ -1,6 +1,9 @@
+package ui;
+
 import java.util.ArrayList;
 
 import comparator.*;
+import domain.Controller;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -94,4 +97,114 @@ public class UserInterface {
         Collections.sort(controller.getMemberList(), comparator1.thenComparing(comparator2));
         System.out.println("The members are now sorted! Press (X) to display the sorted list.");
     }
+
+
+    public void welcomeToDelfin(){
+        System.out.println("Welcome to delfinen.");
+    }
+
+    public void mainMenu() {
+        System.out.println("""
+                        Would you like to:
+                        1. Add a new member?
+                        2. Display existing members?
+                        3. Display competing members with their trainer?
+                        4. Display top swimmers?
+                        5. Sort existing members?
+                        0. Exit program.""");
+    }
+
+    public void displayAllMembersSeniorOrYouth() {
+        System.out.println("Display: All members, senior or youth");
+    }
+
+
+    public void whatIsTheNameOfTheMember() {
+        System.out.println("What is the name of the member?");
+    }
+
+    public void whatIsTheBirthdateMember() {
+        System.out.println("What is the birthdate? [dd/mm/yyyy]");
+    }
+
+    public void phoneNumberMember() {
+        System.out.println("Phone number?");
+    }
+
+    public void emailMember() {
+        System.out.println("Email?");
+    }
+
+    public void addressMember() {
+        System.out.println("Address?");
+    }
+
+    public void activityYouCanChooseTheFollowingCompetingOrMotionist() {
+        System.out.println("Activity" +
+                "You can choose the following:" +
+                "1. Competing." +
+                "2. Motionist.");
+    }
+
+    public void whatDisciplineAreTheyCurrentlyActiveIn() {
+        System.out.println("What discipline are they currently active in?" +
+                "You can only choose the following disciplines:" +
+                "1. Butterfly." +
+                "2. Crawl." +
+                "3. Rygcrawl" +
+                "4. Brystsvømning.");
+    }
+
+    public void whatIsTheirBestSwimmingTime() {
+        System.out.println("What is their best swimming time?");
+    }
+
+    public void whatIsTheNameOfTheTrainer() {
+        System.out.println("What is the name of the trainer?");
+    }
+
+    public void whatIsTheBirthdateTrainer() {
+        System.out.println("What is the birthdate? [dd/mm/yyyy]");
+    }
+
+    public void phoneNumberTrainer() {
+        System.out.println("Phone number?");
+    }
+
+    public void emailTrainer() {
+        System.out.println("Email?");
+    }
+
+    public void addressTrainer() {
+        System.out.println("Address?");
+    }
+
+    public void none() {
+        System.out.println("none");
+    }
+
+    public void whichTrainerWouldYouLikeToAssign() {
+        System.out.println("Which trainer would you like to assign?");
+    }
+
+    public void oneSenior() {
+        System.out.println("1. Senior");
+    }
+
+    public void secondJunior() {
+        System.out.println("2. Junior");
+    }
+
+    public void whichTeamWouldYouLikeToAssignTo(String name) {
+        System.out.println("Which team would you like to assign to: " + name);
+    }
+
+
+
+
+
+
+
+
+
 }

@@ -1,8 +1,7 @@
 package comparator;
 
-import member.Member;
+import domain.Member;
 
-import java.util.Collections;
 import java.util.Comparator;
 
 public class NameComparator implements Comparator<Member> {
