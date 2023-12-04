@@ -33,10 +33,10 @@ public class Database {
     public Member createMember() {
         input.nextLine();
 
-        System.out.println("What is the name of the member?");
+        controller.whatIsTheNameOfTheMemberFromUI();
         String name = input.nextLine();
 
-        System.out.println("What is the birthdate? [dd/mm/yyyy]");
+        controller.whatIsTheBirthdateMemberFromUI();
         String date = input.next();
         String[] birthdate = date.split("/");
         String[] checkForZero = birthdate[0].split("");
@@ -57,21 +57,18 @@ public class Database {
 
         int year = Integer.parseInt(birthdate[2]);
 
-        System.out.println("Phone number?");
+        controller.phoneNumberMemberFromUI();
         int number = input.nextInt();
 
-        System.out.println("Email?");
+        controller.emailMemberFromUI();
         String email = input.next();
 
         input.nextLine();
 
-        System.out.println("Address?");
+        controller.addressMemberFromUI();
         String address = input.nextLine();
 
-        System.out.println("Activity" +
-                "You can choose the following:" +
-                "1. Competing." +
-                "2. Motionist.");
+        controller.activityYouCanChooseTheFollowingCompetingOrMotionistFromUI();
         int activityChoice = input.nextInt();
         String activity = null;
         switch (activityChoice) {
@@ -81,12 +78,7 @@ public class Database {
 
         switch (activity) {
             case "competing" -> {
-                System.out.println("What discipline are they currently active in?" +
-                        "You can only choose the following disciplines:" +
-                        "1. Butterfly." +
-                        "2. Crawl." +
-                        "3. Rygcrawl" +
-                        "4. Brystsvømning.");
+                controller.whatDisciplineAreTheyCurrentlyActiveInFromUI();
                 int formChoice = input.nextInt();
                 String activityForm = null;
                 switch (formChoice) {
@@ -96,7 +88,7 @@ public class Database {
                     case 4 -> activityForm = "brystsvømning";
                 }
 
-                System.out.println("What is their best swimming time?");
+                controller.whatIsTheirBestSwimmingTimeFromUI();
                 Double swimmingTime = input.nextDouble();
                 member = new Member(name, number, email, activity, swimmingTime, address, activityForm, day, month, year);
                 member.setIsCompeting();
@@ -109,10 +101,10 @@ public class Database {
     public Trainer createTrainer() {
         input.nextLine();
 
-        System.out.println("What is the name of the member?");
+        controller.whatIsTheNameOfTheTrainerFromUI();
         String name = input.nextLine();
 
-        System.out.println("What is the birthdate? [dd/mm/yyyy]");
+        controller.whatIsTheBirthdateTrainerFromUI();
         String date = input.next();
         String[] birthdate = date.split("/");
         String[] checkForZero = birthdate[0].split("");
@@ -133,15 +125,15 @@ public class Database {
 
         int year = Integer.parseInt(birthdate[2]);
 
-        System.out.println("Phone number?");
+        controller.phoneNumberTrainerFromUI();
         int number = input.nextInt();
 
-        System.out.println("Email?");
+        controller.emailTrainerFromUI();
         String email = input.next();
 
         input.nextLine();
 
-        System.out.println("Address?");
+        controller.addressTrainerFromUI();
         String address = input.nextLine();
 
         String activity = "Training";
@@ -208,7 +200,7 @@ public class Database {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
         } else{
-            System.out.println("none");
+            controller.noneFromUI();
             for (Member member : competingAboveAge) {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
@@ -220,7 +212,7 @@ public class Database {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
         } else {
-            System.out.println("none");
+            controller.noneFromUI();
             for (Member member : competingUnderAge) {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
@@ -228,7 +220,7 @@ public class Database {
     }
 
     public void assignTrainer () {
-        System.out.println("Which trainer would you like to assing?");
+        controller.whichTrainerWouldYouLikeToAssignFromUI();
         Member trainer = null;
         int count = 0;
         System.out.println(trainerList);
@@ -238,9 +230,9 @@ public class Database {
         }
         int choice = input.nextInt();
         trainer = trainerList.get(choice-1);
-        System.out.println("Which team would you like to assign to: " + trainer.getName());
-        System.out.println("1. Senior");
-        System.out.println("2. Junior");
+        controller.whichTeamWouldYouLikeToAssignToFromUI(trainer.getName());
+        controller.oneSeniorFromUI();
+        controller.secondJuniorFromUI();
         int choice2 = input.nextInt();
         switch (choice2) {
             case 1 -> teamSenior = new Team(trainer, competingAboveAge);
