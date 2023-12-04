@@ -106,11 +106,14 @@ public class UserInterface {
     public void mainMenu() {
         System.out.println("""
                         Would you like to:
-                        1. Add a new member?
-                        2. Display existing members?
-                        3. Display competing members with their trainer?
-                        4. Display top swimmers?
-                        5. Sort existing members?
+                        1. Add a new member.
+                        2. Add a new trainer.
+                        3. Display existing members.
+                        4. Assign trainer to a team.
+                        5. Display competing members with their trainer.
+                        6. Display top swimmers?
+                        7. View subscribtion prices
+                        8. Sort existing members?
                         0. Exit program.""");
     }
 
