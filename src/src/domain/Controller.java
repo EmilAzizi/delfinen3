@@ -11,10 +11,9 @@ import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
     boolean isRunning = true;
-    Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    Scanner input = new Scanner(System.in).useLocale(Locale.US);
     Database database = new Database(this);
     UserInterface UI = new UserInterface(this);
-
 
     public void run() {
         try {
@@ -31,7 +30,7 @@ public class Controller {
     }
 
     private void running() throws IOException {
-        int choice = sc.nextInt();
+        int choice = input.nextInt();
         switch (choice) {
             case 1 -> {
                 database.createMemberList();
