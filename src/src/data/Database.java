@@ -194,6 +194,7 @@ public class Database {
         }
     }
 
+    //TODO Et hold skal altid assignes en træner
     public void displayMembersWithTrainer() {
         divideMembers();
 
