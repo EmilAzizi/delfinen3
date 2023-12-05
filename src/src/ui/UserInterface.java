@@ -226,18 +226,52 @@ public class UserInterface {
         System.out.println("Passive price individual: " + passivePrice + ", Total passive price: " + passivePriceTotal);
     }
 
-    public void subscribtionPassiveNameAndAge(String name, int age) {
+    public void subscribtionNameAndAge(String name, int age) {
         System.out.println("Name: " + name + ". Age: " + age);
     }
 
-    public void subscriptionTotalPriceMessage(int totalPrice){
-        System.out.println("Delfinens total annual income: " + totalPrice);
+
+
+    public void teamSeniorTrainer(String trainer) {
+        System.out.println(trainer);
     }
 
+    public void teamJuniorTrainer(String trainer) {
+        System.out.println(trainer);
+    }
 
+    public void memberNameAgeActivitySwimmingTime(String name, int age, String activity, double swimmingTime) {
+        System.out.println(name + " , " + age + " , " + activity + " , " + swimmingTime);
+    }
 
+    public void displayTopFiveSwimmersMessage(String name, int age, String activity, double time){
+        System.out.println(name + " , " + age + " , " + activity + ", " + time);
+    }
 
+    public void noMemberIsCompetingInActivity(){
+        System.out.println("No competing members in this dicipline.");
+    }
 
+    public void displayTopFiveSwimmersMessage(){
+        System.out.println("""
+                        Which dicipline would you like to sort by?
+                        1. Crawl.
+                        2. Brystsvømning.
+                        3. Rygcrawl.
+                        4. Butterfly.
+                        """);
+    }
 
+    public void seniorJuniorPassivePrice(String teamName, int price, int totalPrice){
+        System.out.println(teamName + " price individual: " + price + ", Total senior price: " + totalPrice);
+    }
+
+    public void totalAnualEarning(int totalEarning){
+        System.out.println("Delfinens total anual earning is: " + totalEarning);
+    }
+
+    public void createTrainerFirstError(){
+        System.out.println("You must create a trainer first before you can assign one.");
+    }
 
 }
