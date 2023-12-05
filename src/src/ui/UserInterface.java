@@ -270,4 +270,8 @@ public class UserInterface {
         System.out.println("Delfinens total anual earning is: " + totalEarning);
     }
 
+    public void createTrainerFirstError(){
+        System.out.println("You must create a trainer first before you can assign one.");
+    }
+
 }

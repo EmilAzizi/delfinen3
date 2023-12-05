@@ -52,7 +52,7 @@ public class Database {
         if (checkForZeroMonth[0].equals("0")) {
             month = Integer.parseInt(checkForZeroMonth[1]);
         } else {
-            month = Integer.parseInt(birthdate[0]);
+            month = Integer.parseInt(birthdate[1]);
         }
 
         int year = Integer.parseInt(birthdate[2]);
@@ -192,7 +192,6 @@ public class Database {
         }
     }
 
-    //TODO Et hold skal altid assignes en træner
     public void displayMembersWithTrainer() {
         divideMembers();
 
@@ -227,20 +226,23 @@ public class Database {
         controller.whichTrainerWouldYouLikeToAssignFromUI();
         Member trainer = null;
         int count = 0;
-        System.out.println(trainerList);
-        for (Member member : trainerList) {
-            count++;
-            System.out.println(count + ". " + member.getName());
-        }
-        int choice = input.nextInt();
-        trainer = trainerList.get(choice - 1);
-        controller.whichTeamWouldYouLikeToAssignToFromUI(trainer.getName());
-        controller.oneSeniorFromUI();
-        controller.secondJuniorFromUI();
-        int choice2 = input.nextInt();
-        switch (choice2) {
-            case 1 -> teamSenior = new Team(trainer, competingAboveAge);
-            case 2 -> teamJunior = new Team(trainer, competingUnderAge);
+        if(!trainerList.isEmpty()) {
+            for (Member member : trainerList) {
+                count++;
+                System.out.println(count + ". " + member.getName());
+            }
+            int choice = input.nextInt();
+            trainer = trainerList.get(choice - 1);
+            controller.whichTeamWouldYouLikeToAssignToFromUI(trainer.getName());
+            controller.oneSeniorFromUI();
+            controller.secondJuniorFromUI();
+            int choice2 = input.nextInt();
+            switch (choice2) {
+                case 1 -> teamSenior = new Team(trainer, competingAboveAge);
+                case 2 -> teamJunior = new Team(trainer, competingUnderAge);
+            }
+        } else {
+            controller.createTrainerFirstErrorFromUI();
         }
     }
 

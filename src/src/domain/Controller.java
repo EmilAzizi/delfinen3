@@ -155,10 +155,6 @@ public class Controller {
     public void whichTeamWouldYouLikeToAssignToFromUI(String name) {
         UI.whichTeamWouldYouLikeToAssignTo(name);
     }
-
-    public void seniorPriceIndividualAndTotalFromUI(int seniorPrice, int seniorPriceTotal) {
-        UI.seniorPriceIndividualAndTotal(seniorPrice, seniorPriceTotal);
-    }
     public void teamSeniorTrainerFromUI(String trainer) {
         UI.teamSeniorTrainer(trainer);
     }
@@ -190,15 +186,19 @@ public class Controller {
     }
 
     public void seniorJuniorPassivePriceFromUI(String teamName, int price, int totalPrice){
-        System.out.println(teamName + " price individual: " + price + ", Total senior price: " + totalPrice);
+        UI.seniorJuniorPassivePrice(teamName, price, totalPrice);
     }
 
     public void totalAnualEarningFromUI(int totalEarning){
-        System.out.println("Delfinens total anual earning is: " + totalEarning);
+        UI.totalAnualEarning(totalEarning);
     }
 
     public void subscribtionNameAndAgeFromUI(String name, int age) {
         UI.subscribtionNameAndAge(name, age);
+    }
+
+    public void createTrainerFirstErrorFromUI(){
+        UI.createTrainerFirstError();
     }
 }
 
