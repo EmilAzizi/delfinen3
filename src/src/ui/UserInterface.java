@@ -206,7 +206,33 @@ public class UserInterface {
         System.out.println("Which team would you like to assign to: " + name);
     }
 
+    public void seniorPriceIndividualAndTotal(int seniorPrice, int seniorPriceTotal) {
+        System.out.println("Senior price individual: " + seniorPrice + ", Total senior price: " + seniorPriceTotal);
+    }
 
+    public void subscriptionSeniorNameAndAge(String name, int age) {
+        System.out.println("Name: " + name + ". Age: " + age);
+    }
+
+    public void juniorPriceIndividualAndTotal(int juniorPrice, int juniorPriceTotal) {
+        System.out.println("Junior price individual: " + juniorPrice + ", Total junior price: " + juniorPriceTotal);
+    }
+
+    public void subscriptionJuniorNameAndAge(String name, int age) {
+        System.out.println("Name: " + name + ". Age: " + age);
+    }
+
+    public void passivePriceIndividualAndTotal(int passivePrice, int passivePriceTotal) {
+        System.out.println("Passive price individual: " + passivePrice + ", Total passive price: " + passivePriceTotal);
+    }
+
+    public void subscribtionPassiveNameAndAge(String name, int age) {
+        System.out.println("Name: " + name + ". Age: " + age);
+    }
+
+    public void subscriptionTotalPriceMessage(int totalPrice){
+        System.out.println("Delfinens total annual income: " + totalPrice);
+    }
 
 
 
