@@ -95,7 +95,7 @@ public class UserInterface {
             case 4 -> comparator2 = new ActivityComparator();
         }
         Collections.sort(controller.getMemberList(), comparator1.thenComparing(comparator2));
-        System.out.println("The members are now sorted! Press (X) to display the sorted list.");
+        System.out.println("The members are now sorted! Press (3) to display the sorted list.");
     }
 
 
@@ -143,21 +143,23 @@ public class UserInterface {
     }
 
     public void activityYouCanChooseTheFollowingCompetingOrMotionist() {
-        System.out.println("Activity" +
-                "You can choose the following:" +
-                "1. Competing." +
-                "2. Motionist." +
-                "3. Passive.");
+        System.out.println("""
+                What's the members status?
+                1. Competing.
+                2. Motionist.
+                3. Passive
+                """);
     }
 
 
     public void whatDisciplineAreTheyCurrentlyActiveIn() {
-        System.out.println("What discipline are they currently active in?" +
-                "You can only choose the following disciplines:" +
-                "1. Butterfly." +
-                "2. Crawl." +
-                "3. Rygcrawl" +
-                "4. Brystsvømning.");
+        System.out.println("""
+                What dicipline are they currently active in?
+                1. Butterfly
+                2. Crawl.
+                3. Rygcrawl.
+                4. Brystsvømning
+                """);
     }
 
     public void whatIsTheirBestSwimmingTime() {

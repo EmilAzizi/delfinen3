@@ -109,19 +109,18 @@ public class Database {
         controller.whatIsTheBirthdateTrainerFromUI();
         String date = input.next();
         String[] birthdate = date.split("/");
-        String[] checkForZeroDay = birthdate[0].split("");
-        String[] checkForZeroMonth = birthdate[1].split("");
+        String[] checkForZero = birthdate[0].split("");
 
         int day;
-        if (checkForZeroDay[0].equals("0")) {
-            day = Integer.parseInt(checkForZeroDay[1]);
+        if (checkForZero[0].equals("0")) {
+            day = Integer.parseInt(checkForZero[1]);
         } else {
             day = Integer.parseInt(birthdate[0]);
         }
 
         int month;
-        if (checkForZeroMonth[0].equals("0")) {
-            month = Integer.parseInt(checkForZeroMonth[1]);
+        if (checkForZero[0].equals("0")) {
+            month = Integer.parseInt(checkForZero[1]);
         } else {
             month = Integer.parseInt(birthdate[0]);
         }
@@ -151,7 +150,7 @@ public class Database {
         FH.savePersonToCSV(memberList);
     }
 
-    public void addTrainerToList() throws IOException{
+    public void addTrainerToList() throws IOException {
         Trainer trainer = createTrainer();
         memberList.add(trainer);
         trainerList.add(trainer);
@@ -161,7 +160,7 @@ public class Database {
     public void addMembersToMembersList() throws IOException {
         for (Member member : FH.loadMembers()) {
             memberList.add(member);
-            if(member.getActivity().equals("Training")){
+            if (member.getActivity().equals("Training")) {
                 trainerList.add(member);
             }
         }
@@ -198,19 +197,19 @@ public class Database {
     public void displayMembersWithTrainer() {
         divideMembers();
 
-        if(teamSenior.getAssignment()){
+        if (teamSenior.getAssignment()) {
             System.out.println(teamSenior.getTrainer());
             for (Member member : teamSenior.getTeam()) {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
-        } else{
+        } else {
             controller.noneFromUI();
             for (Member member : competingAboveAge) {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
             }
         }
 
-        if(teamJunior.getAssignment()){
+        if (teamJunior.getAssignment()) {
             System.out.println(teamJunior.getTrainer());
             for (Member member : teamJunior.getTeam()) {
                 System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
@@ -223,7 +222,7 @@ public class Database {
         }
     }
 
-    public void assignTrainer () {
+    public void assignTrainer() {
         controller.whichTrainerWouldYouLikeToAssignFromUI();
         Member trainer = null;
         int count = 0;
@@ -233,7 +232,7 @@ public class Database {
             System.out.println(count + ". " + member.getName());
         }
         int choice = input.nextInt();
-        trainer = trainerList.get(choice-1);
+        trainer = trainerList.get(choice - 1);
         controller.whichTeamWouldYouLikeToAssignToFromUI(trainer.getName());
         controller.oneSeniorFromUI();
         controller.secondJuniorFromUI();
@@ -244,40 +243,66 @@ public class Database {
         }
     }
 
-    public void displayTopFiveSwimmers () {
+    public void displayTopFiveSwimmers() {
         int count = 0;
+            System.out.println("""
+                        Which dicipline would you like to sort by?
+                        1. Crawl.
+                        2. Brystsvømning.
+                        3. Rygcrawl.
+                        4. Butterfly.
+                        """);
+            int whichDiciplineToSortBy = input.nextInt();
         Collections.sort(controller.getMemberList(), new SwimmingTimeComparator());
         for (Member member : controller.getMemberList()) {
-            if(member.getActivity().equals("competing")){
+            if (member.getActivity().equals("competing")) {
                 count++;
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getSwimmingTime());
                 if (count >= 5) {
                     break;
                 }
+            switch (whichDiciplineToSortBy) {
+                case 1 -> {
+                    if (member.getActivityForm().toLowerCase().equals("crawl"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 2 -> {
+                    if (member.getActivityForm().toLowerCase().equals("brystsvømning"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 3 -> {
+                    if (member.getActivityForm().toLowerCase().equals("rygcrawl"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 4 -> {
+                    if (member.getActivityForm().toLowerCase().equals("butterfly"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                default -> System.out.println("No competing members in this dicipline.");
+            }
             }
         }
     }
 
-    public void calculatePrice(){
+    public void calculatePrice() {
         subscribtion.assignSubscribtion();
         subscribtion.assignPriceToSubscribtion();
     }
 
-    public void viewPrices(){
+    public void viewPrices() {
         calculatePrice();
-        controller.seniorPriceIndividualAndTotalFromUI(subscribtion.getSeniorPrice(), subscribtion.getSeniorPriceTotal());
-        for(Member member : subscribtion.getSenior()){
-            controller.subscriptionSeniorNameAndAgeFromUI(member.getName(), member.getAge());
+        System.out.println("Senior price individual: " + subscribtion.getSeniorPrice() + ", Total senior price: " + subscribtion.getSeniorPriceTotal());
+        for (Member member : subscribtion.getSenior()) {
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
         }
-        controller.juniorPriceIndividualAndTotalFromUI(subscribtion.getJuniorPrice(), subscribtion.getJuniorPriceTotal());
-        for(Member member : subscribtion.getJunior()){
-            controller.subscriptionJuniorNameAndAgeFromUI(member.getName(), member.getAge());
+        System.out.println("Junior price individual: " + subscribtion.getJuniorPrice() + ", Total senior price: " + subscribtion.getJuniorPriceTotal());
+        for (Member member : subscribtion.getJunior()) {
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
         }
-        controller.passivePriceIndividualAndTotalFromUI(subscribtion.getPassivePrice(), subscribtion.getPassivePriceTotal());
-        for(Member member : subscribtion.getPassive()){
-            controller.subscribtionPassiveNameAndAgeFromUI(member.getName(), member.getAge());
+        System.out.println("Passive price individual: " + subscribtion.getPassivePrice() + ", Total senior price: " + subscribtion.getPassivePriceTotal());
+        for (Member member : subscribtion.getPassive()) {
+            System.out.println("Name: " + member.getName() + ". Age: " + member.getAge());
         }
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
-        controller.getSupsciptionTotalPriceFromUI(totalPriceAll);
+        System.out.println("Delfinens total annual income: " + totalPriceAll);
     }
 }
