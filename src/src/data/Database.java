@@ -197,27 +197,29 @@ public class Database {
     public void displayMembersWithTrainer() {
         divideMembers();
 
-        if (teamSenior.getAssignment()) {
-            System.out.println(teamSenior.getTrainer());
+
+        if(teamSenior.getAssignment()){
+            controller.teamSeniorTrainerFromUI(teamSenior.getTrainer());
             for (Member member : teamSenior.getTeam()) {
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
+                controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
             }
         } else {
             controller.noneFromUI();
             for (Member member : competingAboveAge) {
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
+                controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
             }
         }
 
-        if (teamJunior.getAssignment()) {
-            System.out.println(teamJunior.getTrainer());
+
+        if(teamJunior.getAssignment()){
+            controller.teamJuniorTrainerFromUI(teamJunior.getTrainer());
             for (Member member : teamJunior.getTeam()) {
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
+                controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
             }
         } else {
             controller.noneFromUI();
             for (Member member : competingUnderAge) {
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivity() + " , " + member.getSwimmingTime());
+                controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
             }
         }
     }

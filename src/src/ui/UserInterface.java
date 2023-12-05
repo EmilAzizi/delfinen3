@@ -230,14 +230,19 @@ public class UserInterface {
         System.out.println("Name: " + name + ". Age: " + age);
     }
 
-    public void subscriptionTotalPriceMessage(int totalPrice){
-        System.out.println("Delfinens total annual income: " + totalPrice);
+
+
+    public void teamSeniorTrainer(String trainer) {
+        System.out.println(trainer);
     }
 
+    public void teamJuniorTrainer(String trainer) {
+        System.out.println(trainer);
+    }
 
-
-
-
+    public void memberNameAgeActivitySwimmingTime(String name, int age, String activity, double swimmingTime) {
+        System.out.println(name + " , " + age + " , " + activity + " , " + swimmingTime);
+    }
 
 
 }
