@@ -244,14 +244,40 @@ public class Database {
 
     public void displayTopFiveSwimmers() {
         int count = 0;
+            System.out.println("""
+                        Which dicipline would you like to sort by?
+                        1. Crawl.
+                        2. Brystsvømning.
+                        3. Rygcrawl.
+                        4. Butterfly.
+                        """);
+            int whichDiciplineToSortBy = input.nextInt();
         Collections.sort(controller.getMemberList(), new SwimmingTimeComparator());
         for (Member member : controller.getMemberList()) {
             if (member.getActivity().equals("competing")) {
                 count++;
-                System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getSwimmingTime());
                 if (count >= 5) {
                     break;
                 }
+            switch (whichDiciplineToSortBy) {
+                case 1 -> {
+                    if (member.getActivityForm().toLowerCase().equals("crawl"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 2 -> {
+                    if (member.getActivityForm().toLowerCase().equals("brystsvømning"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 3 -> {
+                    if (member.getActivityForm().toLowerCase().equals("rygcrawl"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                case 4 -> {
+                    if (member.getActivityForm().toLowerCase().equals("butterfly"))
+                        System.out.println(member.getName() + " , " + member.getAge() + " , " + member.getActivityForm() + ", " + member.getSwimmingTime());
+                }
+                default -> System.out.println("No competing members in this dicipline.");
+            }
             }
         }
     }
