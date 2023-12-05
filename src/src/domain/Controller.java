@@ -181,6 +181,20 @@ public class Controller {
         UI.subscribtionPassiveNameAndAge(name, age);
     }
 
+    public void teamSeniorTrainerFromUI(String trainer) {
+        UI.teamSeniorTrainer(trainer);
+    }
+
+    public void teamJuniorTrainerFromUI(String trainer) {
+        UI.teamJuniorTrainer(trainer);
+    }
+
+    public void memberNameAgeActivitySwimmingTimeFromUI(String name, int age, String activity, double swimmingTime) {
+        UI.memberNameAgeActivitySwimmingTime(name, age, activity, swimmingTime);
+    }
+
+
+
 
 
 

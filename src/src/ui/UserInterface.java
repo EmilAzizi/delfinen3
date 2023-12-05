@@ -227,9 +227,17 @@ public class UserInterface {
     }
 
 
+    public void teamSeniorTrainer(String trainer) {
+        System.out.println(trainer);
+    }
 
+    public void teamJuniorTrainer(String trainer) {
+        System.out.println(trainer);
+    }
 
-
+    public void memberNameAgeActivitySwimmingTime(String name, int age, String activity, double swimmingTime) {
+        System.out.println(name + " , " + age + " , " + activity + " , " + swimmingTime);
+    }
 
 
 
