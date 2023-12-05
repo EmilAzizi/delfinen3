@@ -155,31 +155,6 @@ public class Controller {
     public void whichTeamWouldYouLikeToAssignToFromUI(String name) {
         UI.whichTeamWouldYouLikeToAssignTo(name);
     }
-
-    public void seniorPriceIndividualAndTotalFromUI(int seniorPrice, int seniorPriceTotal) {
-        UI.seniorPriceIndividualAndTotal(seniorPrice, seniorPriceTotal);
-    }
-
-    public void subscriptionSeniorNameAndAgeFromUI(String name, int age) {
-        UI.subscriptionSeniorNameAndAge(name, age);
-    }
-
-    public void juniorPriceIndividualAndTotalFromUI(int juniorPrice, int juniorPriceTotal) {
-        UI.juniorPriceIndividualAndTotal(juniorPrice, juniorPriceTotal);
-    }
-
-    public void subscriptionJuniorNameAndAgeFromUI(String name, int age) {
-        UI.subscriptionJuniorNameAndAge(name, age);
-    }
-
-    public void passivePriceIndividualAndTotalFromUI(int passivePrice, int passivePriceTotal) {
-        UI.passivePriceIndividualAndTotal(passivePrice, passivePriceTotal);
-    }
-
-    public void subscribtionPassiveNameAndAgeFromUI(String name, int age) {
-        UI.subscribtionPassiveNameAndAge(name, age);
-    }
-
     public void teamSeniorTrainerFromUI(String trainer) {
         UI.teamSeniorTrainer(trainer);
     }
@@ -192,7 +167,38 @@ public class Controller {
         UI.memberNameAgeActivitySwimmingTime(name, age, activity, swimmingTime);
     }
 
+    public void displayTopFiveSwimmersMessageFromUI(String name, int age, String activity, double time){
+        UI.displayTopFiveSwimmersMessage(name, age, activity, time);
+    }
 
+    public void noMemberIsCompetingInActivityFromUI(){
+        UI.noMemberIsCompetingInActivity();
+    }
 
+    public void displayTopFiveSwimmersMessageFromUI(){
+        System.out.println("""
+                        Which dicipline would you like to sort by?
+                        1. Crawl.
+                        2. Brystsvømning.
+                        3. Rygcrawl.
+                        4. Butterfly.
+                        """);
+    }
+
+    public void seniorJuniorPassivePriceFromUI(String teamName, int price, int totalPrice){
+        UI.seniorJuniorPassivePrice(teamName, price, totalPrice);
+    }
+
+    public void totalAnualEarningFromUI(int totalEarning){
+        UI.totalAnualEarning(totalEarning);
+    }
+
+    public void subscribtionNameAndAgeFromUI(String name, int age) {
+        UI.subscribtionNameAndAge(name, age);
+    }
+
+    public void createTrainerFirstErrorFromUI(){
+        UI.createTrainerFirstError();
+    }
 }
 
