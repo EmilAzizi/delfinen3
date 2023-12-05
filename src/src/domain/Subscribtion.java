@@ -30,9 +30,9 @@ public class Subscribtion {
 
     public void assignSubscribtion(){
         for(Member member : members){
-            if(member.getAge() < seniorAge){
+            if(member.getAge() < seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))){
                 junior.add(member);
-            } else if(member.getAge() >= seniorAge){
+            } else if(member.getAge() >= seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))){
                 senior.add(member);
             } else if(member.getActivity().equals("passive")){
                 passive.add(member);
