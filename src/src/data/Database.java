@@ -199,7 +199,7 @@ public class Database {
         if(teamSenior.getAssignment()){
             controller.teamSeniorTrainerFromUI(teamSenior.getTrainer());
             for (Member member : teamSenior.getTeam()) {
-               controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
+                controller.memberNameAgeActivitySwimmingTimeFromUI(member.getName(), member.getAge(), member.getActivity(), member.getSwimmingTime());
             }
         } else{
             controller.noneFromUI();
