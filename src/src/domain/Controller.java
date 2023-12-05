@@ -11,10 +11,9 @@ import java.util.Locale;
 import java.util.Scanner;
 public class Controller {
     boolean isRunning = true;
-    Scanner sc = new Scanner(System.in).useLocale(Locale.US);
+    Scanner input = new Scanner(System.in).useLocale(Locale.US);
     Database database = new Database(this);
     UserInterface UI = new UserInterface(this);
-
 
     public void run() {
         try {
@@ -31,7 +30,7 @@ public class Controller {
     }
 
     private void running() throws IOException {
-        int choice = sc.nextInt();
+        int choice = input.nextInt();
         switch (choice) {
             case 1 -> {
                 database.createMemberList();
@@ -181,7 +180,6 @@ public class Controller {
         UI.subscribtionPassiveNameAndAge(name, age);
     }
 
-
     public void teamSeniorTrainerFromUI(String trainer) {
         UI.teamSeniorTrainer(trainer);
     }
@@ -193,12 +191,6 @@ public class Controller {
     public void memberNameAgeActivitySwimmingTimeFromUI(String name, int age, String activity, double swimmingTime) {
         UI.memberNameAgeActivitySwimmingTime(name, age, activity, swimmingTime);
     }
-
-
-
-
-
-
 
 
 
