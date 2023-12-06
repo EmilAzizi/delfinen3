@@ -121,4 +121,8 @@ public class Member {
     public boolean getHasPaid(){
         return hasPaid;
     }
+
+    public void setHasPaid(boolean hasPaid){
+        this.hasPaid = hasPaid;
+    }
 }

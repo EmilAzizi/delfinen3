@@ -281,6 +281,7 @@ public class Database {
     }
 
     public void calculatePrice() {
+        subscribtion.resetPrice();
         subscribtion.assignSubscribtion();
         subscribtion.assignPriceToSubscribtion();
     }
@@ -306,6 +307,7 @@ public class Database {
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
         totalPriceAll = totalPriceAll - subscribtion.getDeptTotal();
         System.out.println("Delfinens total dept is: " + subscribtion.getDeptTotal());
+
         controller.totalAnualEarningFromUI(totalPriceAll);
     }
 

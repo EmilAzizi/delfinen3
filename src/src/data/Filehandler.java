@@ -34,7 +34,7 @@ public class Filehandler {
                             member.getActivity() + " , " +
                             member.getAdress() + " , " +
                             member.getSwimmingTime() + " , " +
-                            member.getActivityForm();
+                            member.getActivityForm() + " , " + member.getHasPaid();
             output.println(line);
         }
         output.close();
@@ -59,10 +59,17 @@ public class Filehandler {
             String address = attributes[7];
             double swimmingTime = Double.parseDouble(attributes[8]);
             String activityForm = attributes[9];
+            boolean hasPaid = Boolean.parseBoolean(attributes[10]);
 
             switch(activity){
-                case "competing" -> loadMember = new Member(name, phoneNumber, email, activity, swimmingTime, address, activityForm, day, month, year);
-                default -> loadMember = new Member(name, phoneNumber, email, activity, address, day, month, year);
+                case "competing" -> {
+                    loadMember = new Member(name, phoneNumber, email, activity, swimmingTime, address, activityForm, day, month, year);
+                    loadMember.setHasPaid(hasPaid);
+                }
+                default -> {
+                    loadMember = new Member(name, phoneNumber, email, activity, address, day, month, year);
+                    loadMember.setHasPaid(hasPaid);
+                }
             }
 
             members.add(loadMember);
@@ -89,7 +96,7 @@ public class Filehandler {
                             member.getActivity() + " , " +
                             member.getAdress() + " , " +
                             member.getSwimmingTime() + " , " +
-                            member.getActivityForm();
+                            member.getActivityForm() + " , " + member.getHasPaid();
             output.println(line);
         }
         output.close();
