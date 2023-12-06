@@ -3,6 +3,7 @@ package data;
 import domain.Member;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -14,8 +15,10 @@ public class Filehandler {
 
     private Member loadMember;
 
-    public Filehandler(String fileName){
+    Database database;
+    public Filehandler(String fileName, Database database){
         f = new File(fileName);
+        this.database = database;
     }
 
     public void savePersonToCSV(ArrayList<Member> memberList) throws IOException {
@@ -66,5 +69,29 @@ public class Filehandler {
         }
         sc.close();
         return members;
+    }
+
+    public void changeMember() throws IOException{
+
+        ArrayList<Member> membersToEdit = database.getMemberList();
+
+        new FileOutputStream(f).close();
+
+        PrintStream output = new PrintStream(f);
+        for (Member member : membersToEdit) {
+            String line =
+                    member.getName() + " , " +
+                            member.getDay() + " , " +
+                            member.getMonth() + " , " +
+                            member.getYear() + " , " +
+                            member.getPhoneNumber() + " , " +
+                            member.getEmail() + " , " +
+                            member.getActivity() + " , " +
+                            member.getAdress() + " , " +
+                            member.getSwimmingTime() + " , " +
+                            member.getActivityForm();
+            output.println(line);
+        }
+        output.close();
     }
 }

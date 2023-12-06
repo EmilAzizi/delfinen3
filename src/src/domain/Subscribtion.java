@@ -8,6 +8,7 @@ public class Subscribtion {
     ArrayList<Member> junior;
     ArrayList<Member> passive;
     ArrayList<Member> members;
+    ArrayList<Member> notActive;
 
     private final int juniorPrice = 1000;
     private final int seniorPrice = 1600;
@@ -16,6 +17,7 @@ public class Subscribtion {
     private int seniorPriceTotal;
     private int juniorPriceTotal;
     private int passivePriceTotal;
+    private int deptTotal;
     private int seniorDiscount;
 
 
@@ -26,16 +28,21 @@ public class Subscribtion {
         senior = new ArrayList<>();
         junior = new ArrayList<>();
         passive = new ArrayList<>();
+        notActive = new ArrayList<>();
     }
 
     public void assignSubscribtion(){
         for(Member member : members){
-            if(member.getAge() < seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))){
-                junior.add(member);
-            } else if(member.getAge() >= seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))){
-                senior.add(member);
-            } else if(member.getActivity().equals("passive")){
-                passive.add(member);
+            if(member.getHasPaid()) {
+                if (member.getAge() < seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist") && !junior.contains(member))) {
+                    junior.add(member);
+                } else if (member.getAge() >= seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist")) && !senior.contains(member)) {
+                    senior.add(member);
+                } else if (member.getActivity().equals("passive") && !passive.contains(member)) {
+                    passive.add(member);
+                }
+            } else {
+                notActive.add(member);
             }
         }
     }
@@ -54,6 +61,18 @@ public class Subscribtion {
         }
         for(Member member : passive){
             passivePriceTotal += passivePrice;
+        }
+        for(Member member : notActive){
+            if(member.getAge() >= seniorAge){
+                deptTotal -= seniorPrice;
+            } else if(member.getAge() >= 60){
+                seniorDiscount = (seniorPrice * 25) / 100;
+                deptTotal -= seniorDiscount;
+            } else if(member.getAge() < seniorAge){
+                deptTotal -= juniorPrice;
+            } else if(member.getActivity().equals("passive")){
+                deptTotal -= passivePrice;
+            }
         }
     }
 
@@ -91,5 +110,13 @@ public class Subscribtion {
 
     public int getSeniorPrice() {
         return seniorPrice;
+    }
+
+    public ArrayList<Member> getNotActive() {
+        return notActive;
+    }
+
+    public int getDeptTotal() {
+        return deptTotal;
     }
 }

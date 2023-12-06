@@ -111,9 +111,10 @@ public class UserInterface {
                         3. Display existing members.
                         4. Assign trainer to a team.
                         5. Display competing members with their trainer.
-                        6. Display top swimmers?
-                        7. View subscribtion prices
-                        8. Sort existing members?
+                        6. Display top swimmers.
+                        7. View subscribtion prices.
+                        8. Change member's activity.
+                        9. Sort existing members.
                         0. Exit program.""");
     }
 

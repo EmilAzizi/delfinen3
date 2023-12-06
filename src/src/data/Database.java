@@ -15,7 +15,7 @@ public class Database {
     Team teamSenior = new Team();
     Team teamJunior = new Team();
     private Scanner input = new Scanner(System.in).useLocale(Locale.US);
-    Filehandler FH = new Filehandler("members.csv");
+    Filehandler FH = new Filehandler("members.csv", this);
     private Member member;
 
     private Controller controller;
@@ -299,7 +299,47 @@ public class Database {
         for (Member member : subscribtion.getPassive()) {
             controller.subscribtionNameAndAgeFromUI(member.getName(), member.getAge());
         }
+        System.out.println("Members with missing payment: ");
+        for(Member member : subscribtion.getNotActive()){
+            System.out.println(member.getName() + ". " + member.getAge());
+        }
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
+        totalPriceAll = totalPriceAll - subscribtion.getDeptTotal();
+        System.out.println("Delfinens total dept is: " + subscribtion.getDeptTotal());
         controller.totalAnualEarningFromUI(totalPriceAll);
+    }
+
+    public void changeMembersActivity() throws IOException{
+        int count = 0;
+        System.out.println("Which members activity would you like to change: ");
+        Member originalMember = null;
+        for(Member member : memberList){
+            count++;
+            System.out.println(count + ". Name: " + member.getName() + ". Age: " + member.getAge() + ". Activity: " + member.getActivity());
+        }
+        int choice = input.nextInt();
+
+        originalMember = memberList.get(choice-1);
+        System.out.println("Which activity would you like to change to for: " + originalMember.getName());
+        System.out.println("""
+                1. Competing.
+                2. Motionist.
+                3. Passive.
+                4. Has not paid.
+                """);
+        int activityChoice = input.nextInt();
+        switch(activityChoice){
+            case 1 -> {
+                originalMember.setActivity(activityChoice);
+                controller.whatDisciplineAreTheyCurrentlyActiveInFromUI();
+                int activityForm = input.nextInt();
+                originalMember.setActivityForm(activityForm);
+                controller.whatIsTheirBestSwimmingTimeFromUI();
+                double swimmingTime = input.nextDouble();
+                originalMember.setSwimmingTime(swimmingTime);
+            }
+            default -> originalMember.setActivity(activityChoice);
+        }
+        FH.changeMember();
     }
 }
