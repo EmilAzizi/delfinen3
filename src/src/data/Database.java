@@ -15,7 +15,7 @@ public class Database {
     Team teamSenior = new Team();
     Team teamJunior = new Team();
     private Scanner input = new Scanner(System.in).useLocale(Locale.US);
-    Filehandler FH = new Filehandler("members.csv");
+    Filehandler FH = new Filehandler("members.csv", this);
     private Member member;
 
     private Controller controller;
@@ -229,7 +229,7 @@ public class Database {
         if(!trainerList.isEmpty()) {
             for (Member member : trainerList) {
                 count++;
-                System.out.println(count + ". " + member.getName());
+                controller.showTrainer(count, member.getName());
             }
             int choice = input.nextInt();
             trainer = trainerList.get(choice - 1);
@@ -281,6 +281,7 @@ public class Database {
     }
 
     public void calculatePrice() {
+        subscribtion.resetPrice();
         subscribtion.assignSubscribtion();
         subscribtion.assignPriceToSubscribtion();
     }
@@ -299,7 +300,42 @@ public class Database {
         for (Member member : subscribtion.getPassive()) {
             controller.subscribtionNameAndAgeFromUI(member.getName(), member.getAge());
         }
+        controller.membersWithDept();
+        for(Member member : subscribtion.getNotActive()){
+            controller.allMembersWithDept(member.getName(), member.getAge());
+        }
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
+        totalPriceAll = totalPriceAll + subscribtion.getDeptTotal();
+        controller.totalDept(subscribtion.getDeptTotal());
+
         controller.totalAnualEarningFromUI(totalPriceAll);
+    }
+
+    public void changeMembersActivity() throws IOException{
+        int count = 0;
+        controller.whichMemberToChangeMessageFromUI();
+        Member originalMember = null;
+        for(Member member : memberList){
+            count++;
+            controller.memberToChange(count, member.getName(), member.getAge(), member.getActivity());
+        }
+        int choice = input.nextInt();
+
+        originalMember = memberList.get(choice-1);
+        controller.changeMemberMenuFromUI(originalMember.getHasPaid(), originalMember.getName());
+        int activityChoice = input.nextInt();
+        switch(activityChoice){
+            case 1 -> {
+                originalMember.setActivity(activityChoice);
+                controller.whatDisciplineAreTheyCurrentlyActiveInFromUI();
+                int activityForm = input.nextInt();
+                originalMember.setActivityForm(activityForm);
+                controller.whatIsTheirBestSwimmingTimeFromUI();
+                double swimmingTime = input.nextDouble();
+                originalMember.setSwimmingTime(swimmingTime);
+            }
+            default -> originalMember.setActivity(activityChoice);
+        }
+        FH.changeMember();
     }
 }

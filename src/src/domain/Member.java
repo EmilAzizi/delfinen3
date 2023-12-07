@@ -12,11 +12,11 @@ public class Member {
     private String address;
     private double swimmingTime;
     private boolean isCompeting = false;
-    private String subscribtion;
     private String activityForm;
     private int day;
     private int month;
     private int year;
+    private boolean hasPaid = true;
     public Member(String name, int phoneNumber, String email, String activity, String address, int day, int month, int year) {
         this.day = day;
         this.month = month;
@@ -41,12 +41,6 @@ public class Member {
         this.swimmingTime = swimmingTime;
         this.activityForm = activityForm;
     }
-
-    /*public void setSubscribtion(){
-        switch (age){
-            case
-    }*/
-
     public void setIsCompeting(){
         isCompeting = true;
     }
@@ -97,5 +91,38 @@ public class Member {
     }
     public int getYear() {
         return year;
+    }
+    public void setActivity(int choice){
+        switch(choice){
+            case 1 -> this.activity = "competing";
+            case 2 -> this.activity = "motionist";
+            case 3 -> this.activity = "passive";
+            case 4 -> {
+                if(hasPaid == true){
+                    this.hasPaid = false;
+                } else {
+                    this.hasPaid = true;
+                }
+            }
+        }
+    }
+    public void setActivityForm(int activityFormChoice){
+        switch (activityFormChoice) {
+            case 1 -> this.activityForm = "butterfly";
+            case 2 -> this.activityForm = "crawl";
+            case 3 -> this.activityForm = "rygcrawl";
+            case 4 -> this.activityForm = "brystsvømning";
+        }
+    }
+
+    public void setSwimmingTime(double swimmingTime) {
+        this.swimmingTime = swimmingTime;
+    }
+    public boolean getHasPaid(){
+        return hasPaid;
+    }
+
+    public void setHasPaid(boolean hasPaid){
+        this.hasPaid = hasPaid;
     }
 }
