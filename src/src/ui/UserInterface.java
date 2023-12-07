@@ -264,7 +264,7 @@ public class UserInterface {
     }
 
     public void seniorJuniorPassivePrice(String teamName, int price, int totalPrice){
-        System.out.println(teamName + " price individual: " + price + ", Total senior price: " + totalPrice);
+        System.out.println(teamName + " price individual: " + price + ", Total " + teamName +" price: " + totalPrice);
     }
 
     public void totalAnualEarning(int totalEarning){
@@ -275,4 +275,46 @@ public class UserInterface {
         System.out.println("You must create a trainer first before you can assign one.");
     }
 
+    public void changeMemberMenu(boolean hasPaid, String memberName){
+        System.out.println("Which activity would you like to change to for: " + memberName);
+        if(hasPaid){
+            System.out.println("""
+                1. Competing.
+                2. Motionist.
+                3. Passive.
+                4. Member has not paid.
+                """);
+        } else {
+            System.out.println("""
+                    1. Competing.
+                    2. Motionist.
+                    3. Passive.
+                    4. Member has paid.
+                    """);
+        }
+    }
+
+    public void whichMemberToChangeMessage(){
+        System.out.println("Which members activity would you like to change: ");
+    }
+
+    public void memberToChange(int count ,String name, int age, String activity){
+        System.out.println(count + ". Name: " + name + ". Age: " + age + ". Activity: " + activity);
+    }
+
+    public void membersWithDept(){
+        System.out.println("Members with missing payment: ");
+    }
+
+    public void allMembersWithDept(String name, int age){
+        System.out.println("Name: " + name + ". Age: " + age);
+    }
+
+    public void totalDept(int dept){
+        System.out.println("Delfinens total dept is: " + dept);
+    }
+
+    public void showTrainers(int count, String name){
+        System.out.println(count + ". " + name);
+    }
 }

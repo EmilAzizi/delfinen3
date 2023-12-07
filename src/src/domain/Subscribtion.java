@@ -19,6 +19,7 @@ public class Subscribtion {
     private int passivePriceTotal;
     private int deptTotal;
     private int seniorDiscount;
+    Member membersToBeRemoved;
 
 
     private final int seniorAge = 18;
@@ -31,9 +32,12 @@ public class Subscribtion {
         notActive = new ArrayList<>();
     }
 
+    //TODO husk at medlemmer skal flyttes fra andre lister hvis de vælger en anden aktivitet.
     public void assignSubscribtion(){
+        checkForDept();
         for(Member member : members){
             if(member.getHasPaid()) {
+                membersToBeRemoved = member;
                 if (!junior.contains(member) && member.getAge() < seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))) {
                     junior.add(member);
                 } else if (!senior.contains(member) && member.getAge() >= seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))) {
@@ -43,10 +47,32 @@ public class Subscribtion {
                 }
             } else if(!notActive.contains(member)){
                 notActive.add(member);
-            } else if(notActive.contains(member) && member.getHasPaid()){
-                notActive.remove(member);
+                if(senior.contains(membersToBeRemoved)){
+                    senior.remove(member);
+                } else if(junior.contains(member)){
+                    junior.remove(membersToBeRemoved);
+                } else if(passive.contains(membersToBeRemoved)){
+                    passive.remove(membersToBeRemoved);
+                }
             }
         }
+    }
+
+    public void checkForDept(){
+        Member memberToBeRemoved = null;
+        for(Member member : notActive){
+            if(member.getAge() < seniorAge && member.getHasPaid()){
+                memberToBeRemoved = member;
+                junior.add(member);
+            } else if(member.getAge() >= seniorAge && member.getHasPaid()){
+                memberToBeRemoved = member;
+                senior.add(member);
+            } else if(member.getActivity().equals("passive") && member.getHasPaid()){
+                memberToBeRemoved = member;
+                passive.add(member);
+            }
+        }
+        notActive.remove(memberToBeRemoved);
     }
 
     public void assignPriceToSubscribtion(){

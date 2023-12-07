@@ -177,13 +177,7 @@ public class Controller {
     }
 
     public void displayTopFiveSwimmersMessageFromUI(){
-        System.out.println("""
-                        Which dicipline would you like to sort by?
-                        1. Crawl.
-                        2. Brystsvømning.
-                        3. Rygcrawl.
-                        4. Butterfly.
-                        """);
+        UI.displayTopFiveSwimmersMessage();
     }
 
     public void seniorJuniorPassivePriceFromUI(String teamName, int price, int totalPrice){
@@ -200,6 +194,32 @@ public class Controller {
 
     public void createTrainerFirstErrorFromUI(){
         UI.createTrainerFirstError();
+    }
+    public void changeMemberMenuFromUI(boolean hasPaid, String memberName){
+        UI.changeMemberMenu(hasPaid, memberName);
+    }
+    public void whichMemberToChangeMessageFromUI(){
+        UI.whichMemberToChangeMessage();
+    }
+
+    public void memberToChange(int count ,String name, int age, String activity){
+        UI.memberToChange(count, name, age, activity);
+    }
+
+    public void membersWithDept(){
+        UI.membersWithDept();
+    }
+
+    public void allMembersWithDept(String name, int age){
+        UI.allMembersWithDept(name, age);
+    }
+
+    public void totalDept(int dept){
+        UI.totalDept(dept);
+    }
+
+    public void showTrainer(int count, String name){
+        UI.showTrainers(count, name);
     }
 }
 
