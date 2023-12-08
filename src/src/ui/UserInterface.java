@@ -34,7 +34,9 @@ public class UserInterface {
 
     public void amountOfAttributes() {
         System.out.println("""
-                    Would you like to sort by one or two attributes?
+                    Would you like to sort by:
+                    1. One attribute
+                    2. two attributes
                 """);
 
 
@@ -70,7 +72,7 @@ public class UserInterface {
             case 3 -> Collections.sort(controller.getMemberList(), new SwimmingTimeComparator());
             case 4 -> Collections.sort(controller.getMemberList(), new ActivityComparator());
         }
-        System.out.println("The members are now sorted! Press (X) to display the sorted list.");
+        System.out.println("The members are now sorted! Press (3) to display the sorted list.");
         if (controller.getMemberList().isEmpty()){
             System.out.println("Empty");
         }
@@ -119,7 +121,12 @@ public class UserInterface {
     }
 
     public void displayAllMembersSeniorOrYouth() {
-        System.out.println("Display: All members, senior or youth");
+        System.out.println("""
+    Display: 
+    1. All members 
+    2. Senior 
+    3. Youth
+    """);
     }
 
 
@@ -264,11 +271,11 @@ public class UserInterface {
     }
 
     public void seniorJuniorPassivePrice(String teamName, int price, int totalPrice){
-        System.out.println(teamName + " price individual: " + price + ", Total " + teamName +" price: " + totalPrice);
+        System.out.println(teamName + " price individual: " + price + ", Total " + teamName +" price: " + totalPrice + "\n");
     }
 
     public void totalAnualEarning(int totalEarning){
-        System.out.println("Delfinens total anual earning is: " + totalEarning);
+        System.out.println("Delfinens total anual earning is: " + totalEarning + "\n");
     }
 
     public void createTrainerFirstError(){
