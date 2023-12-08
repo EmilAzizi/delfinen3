@@ -246,6 +246,14 @@ public class Database {
         }
     }
 
+    public void trackMember(String memberToSearch){
+        for(Member member : memberList){
+            if(member.getName().contains(memberToSearch)){
+                controller.showMemberForTracking(member.getName(), member.getPhoneNumber(), member.getEmail(), member.getActivity(), member.getSwimmingTime(), member.getAdress(), member.getActivityForm(), member.getAge());
+            }
+        }
+    }
+
     public void displayTopFiveSwimmers() {
         int count = -1;
             controller.displayTopFiveSwimmersMessageFromUI();
