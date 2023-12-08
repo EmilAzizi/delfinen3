@@ -32,7 +32,6 @@ public class Subscribtion {
         notActive = new ArrayList<>();
     }
 
-    //TODO husk at medlemmer skal flyttes fra andre lister hvis de vælger en anden aktivitet.
     public void assignSubscribtion(){
         checkForDept();
         for(Member member : members){
@@ -40,10 +39,14 @@ public class Subscribtion {
                 membersToBeRemoved = member;
                 if (!junior.contains(member) && member.getAge() < seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))) {
                     junior.add(member);
+                    passive.remove(member);
                 } else if (!senior.contains(member) && member.getAge() >= seniorAge && (member.getActivity().equals("competing") || member.getActivity().equals("motionist"))) {
                     senior.add(member);
+                    passive.remove(member);
                 } else if (!passive.contains(member) && member.getActivity().equals("passive")) {
                     passive.add(member);
+                    senior.remove(member);
+                    junior.remove(member);
                 }
             } else if(!notActive.contains(member)){
                 notActive.add(member);
