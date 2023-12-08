@@ -5,10 +5,8 @@ import data.Database;
 import ui.UserInterface;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
+
 public class Controller {
     boolean isRunning = true;
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
@@ -26,6 +24,8 @@ public class Controller {
             }
         } catch(IOException e){
             e.getMessage();
+        } catch(InputMismatchException a){
+            System.out.println("Stop");
         }
     }
 
