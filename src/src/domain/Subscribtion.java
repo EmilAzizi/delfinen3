@@ -1,6 +1,5 @@
 package domain;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Subscribtion {
@@ -122,7 +121,6 @@ public class Subscribtion {
     public ArrayList<Member> getJunior() {
         return junior;
     }
-
     public ArrayList<Member> getPassive() {
         return passive;
     }
@@ -147,7 +145,7 @@ public class Subscribtion {
         return notActive;
     }
 
-    public int getDeptTotal() {
+    public int getDebtTotal() {
         return deptTotal;
     }
 

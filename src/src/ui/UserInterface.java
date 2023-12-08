@@ -1,13 +1,13 @@
 package ui;
 
-import java.util.ArrayList;
-
 import comparator.*;
 import domain.Controller;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+
 public class UserInterface {
     Scanner input = new Scanner(System.in);
     Controller controller;
@@ -17,10 +17,9 @@ public class UserInterface {
     }
 
 
-
-// Work on progress
-    public void printMembers(String name, int age, String address, int phoneNumber, String email, String activity, double swimmingTime, String activityForm){
-        switch(activity){
+    // Work on progress
+    public void printMembers(String name, int age, String address, int phoneNumber, String email, String activity, double swimmingTime, String activityForm) {
+        switch (activity) {
             case "competing" -> {
                 System.out.println("Name: " + name + ", " + "Age: " + age + ", " +
                         "Address: " + address + ", " + "PhoneNumber: " + phoneNumber + ", " +
@@ -34,22 +33,23 @@ public class UserInterface {
 
     public void amountOfAttributes() {
         System.out.println("""
-                    Would you like to sort by:
-                    1. One attribute
-                    2. two attributes
+                Would you like to sort by:
+                1. One attribute.
+                2. Two attributes.
                 """);
 
 
         int userChoiseForAttributesAmount = input.nextInt();
         switch (userChoiseForAttributesAmount) {
             case 1 -> sortSwimmersByOneAttribute();
-            case 2 -> { System.out.println("""
-                What would you like to sort by?
-                1. Name
-                2. Age
-                3. Swimming time
-                4. Activity
-                """);
+            case 2 -> {
+                System.out.println("""
+                        What would you like to sort by?
+                        1. Name
+                        2. Age
+                        3. Swimming time
+                        4. Activity
+                        """);
                 int firstChoise = input.nextInt();
                 int secondChoise = input.nextInt();
                 sortSwimmersByTwoAttributes(firstChoise, secondChoise);
@@ -73,7 +73,7 @@ public class UserInterface {
             case 4 -> Collections.sort(controller.getMemberList(), new ActivityComparator());
         }
         System.out.println("The members are now sorted! Press (3) to display the sorted list.");
-        if (controller.getMemberList().isEmpty()){
+        if (controller.getMemberList().isEmpty()) {
             System.out.println("Empty");
         }
 
@@ -101,32 +101,33 @@ public class UserInterface {
     }
 
 
-    public void welcomeToDelfin(){
+    public void welcomeToDelfin() {
         System.out.println("Welcome to delfinen.");
     }
 
     public void mainMenu() {
         System.out.println("""
-                        Would you like to:
-                        1. Add a new member.
-                        2. Add a new trainer.
-                        3. Display existing members.
-                        4. Assign trainer to a team.
-                        5. Display competing members with their trainer.
-                        6. Display top swimmers.
-                        7. View subscribtion prices.
-                        8. Change member's activity.
-                        9. Sort existing members.
-                        0. Exit program.""");
+                Would you like to:
+                1. Add a new member.
+                2. Add a new trainer.
+                3. Display existing members.
+                4. Assign trainer to a team.
+                5. Display competing members with their trainer.
+                6. Display top swimmers.
+                7. View subscribtion prices.
+                8. Change member's activity.
+                9. Sort existing members.
+                0. Exit program.""");
     }
 
     public void displayAllMembersSeniorOrYouth() {
         System.out.println("""
-    Display: 
-    1. All members 
-    2. Senior 
-    3. Youth
-    """);
+                What would you like to display?
+                1. All members.
+                2. Senior.
+                3. Youth.
+                4. Search for a member
+                """);
     }
 
 
@@ -214,31 +215,6 @@ public class UserInterface {
         System.out.println("Which team would you like to assign to: " + name);
     }
 
-    public void seniorPriceIndividualAndTotal(int seniorPrice, int seniorPriceTotal) {
-        System.out.println("Senior price individual: " + seniorPrice + ", Total senior price: " + seniorPriceTotal);
-    }
-
-    public void subscriptionSeniorNameAndAge(String name, int age) {
-        System.out.println("Name: " + name + ". Age: " + age);
-    }
-
-    public void juniorPriceIndividualAndTotal(int juniorPrice, int juniorPriceTotal) {
-        System.out.println("Junior price individual: " + juniorPrice + ", Total junior price: " + juniorPriceTotal);
-    }
-
-    public void subscriptionJuniorNameAndAge(String name, int age) {
-        System.out.println("Name: " + name + ". Age: " + age);
-    }
-
-    public void passivePriceIndividualAndTotal(int passivePrice, int passivePriceTotal) {
-        System.out.println("Passive price individual: " + passivePrice + ", Total passive price: " + passivePriceTotal);
-    }
-
-    public void subscribtionNameAndAge(String name, int age) {
-        System.out.println("Name: " + name + ". Age: " + age);
-    }
-
-
 
     public void teamSeniorTrainer(String trainer) {
         System.out.println(trainer);
@@ -252,45 +228,48 @@ public class UserInterface {
         System.out.println(name + " , " + age + " , " + activity + " , " + swimmingTime);
     }
 
-    public void displayTopFiveSwimmersMessage(String name, int age, String activity, double time){
+    public void displayTopFiveSwimmersMessage(String name, int age, String activity, double time) {
         System.out.println(name + " , " + age + " , " + activity + ", " + time);
     }
 
-    public void noMemberIsCompetingInActivity(){
+    public void noMemberIsCompetingInActivity() {
         System.out.println("No competing members in this dicipline.");
     }
 
-    public void displayTopFiveSwimmersMessage(){
+    public void displayTopFiveSwimmersMessage() {
         System.out.println("""
-                        Which dicipline would you like to sort by?
-                        1. Crawl.
-                        2. Brystsvømning.
-                        3. Rygcrawl.
-                        4. Butterfly.
-                        """);
+                Which dicipline would you like to sort by?
+                1. Crawl.
+                2. Brystsvømning.
+                3. Rygcrawl.
+                4. Butterfly.
+                """);
     }
 
-    public void seniorJuniorPassivePrice(String teamName, int price, int totalPrice){
-        System.out.println(teamName + " price individual: " + price + ", Total " + teamName +" price: " + totalPrice + "\n");
+    public void seniorJuniorPassivePrice(String teamName, int price, int totalPrice, int amount) {
+        System.out.println(teamName + " subscription price: " + price);
+        System.out.println("Total income from " + teamName + " members: " + totalPrice);
+        System.out.println("(" + amount + ")" + " total " + teamName + " members" + "\n");
     }
 
-    public void totalAnualEarning(int totalEarning){
-        System.out.println("Delfinens total anual earning is: " + totalEarning + "\n");
+    public void totalAnualEarning(int totalEarning) {
+        System.out.println("Delfinens total anual earning is: " + totalEarning);
+        System.out.println();
     }
 
-    public void createTrainerFirstError(){
+    public void createTrainerFirstError() {
         System.out.println("You must create a trainer first before you can assign one.");
     }
 
-    public void changeMemberMenu(boolean hasPaid, String memberName){
+    public void changeMemberMenu(boolean hasPaid, String memberName) {
         System.out.println("Which activity would you like to change to for: " + memberName);
-        if(hasPaid){
+        if (hasPaid) {
             System.out.println("""
-                1. Competing.
-                2. Motionist.
-                3. Passive.
-                4. Member has not paid.
-                """);
+                    1. Competing.
+                    2. Motionist.
+                    3. Passive.
+                    4. Member has not paid.
+                    """);
         } else {
             System.out.println("""
                     1. Competing.
@@ -301,27 +280,27 @@ public class UserInterface {
         }
     }
 
-    public void whichMemberToChangeMessage(){
+    public void whichMemberToChangeMessage() {
         System.out.println("Which members activity would you like to change: ");
     }
 
-    public void memberToChange(int count ,String name, int age, String activity){
+    public void memberToChange(int count, String name, int age, String activity) {
         System.out.println(count + ". Name: " + name + ". Age: " + age + ". Activity: " + activity);
     }
 
-    public void membersWithDept(){
+    public void membersWithDebt() {
         System.out.println("Members with missing payment: ");
     }
 
-    public void allMembersWithDept(String name, int age){
+    public void allMembersWithDebt(String name, int age) {
         System.out.println("Name: " + name + ". Age: " + age);
     }
 
-    public void totalDept(int dept){
-        System.out.println("Delfinens total dept is: " + dept);
+    public void totalDebt(int debt) {
+        System.out.println("Delfinens total debt is: " + debt);
     }
 
-    public void showTrainers(int count, String name){
+    public void showTrainers(int count, String name) {
         System.out.println(count + ". " + name);
     }
 }
