@@ -44,6 +44,12 @@ public class Controller {
                     case 1 -> display(displayChoice);
                     case 2 -> display(displayChoice);
                     case 3 -> display(displayChoice);
+                    case 4 -> {
+                        UI.searchForMember();
+                        input.nextLine();
+                        String memberToFind = input.nextLine();
+                        database.trackMember(memberToFind);
+                    }
                 }
             }
             case 4 -> database.assignTrainer();
@@ -220,6 +226,9 @@ public class Controller {
 
     public void showTrainer(int count, String name){
         UI.showTrainers(count, name);
+    }
+    public void showMemberForTracking(String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm, int age){
+        UI.showMemberForTracking(name, phoneNumber, email, activity, swimmingTime, address, activityForm, age);
     }
 }
 
