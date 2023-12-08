@@ -180,16 +180,12 @@ public class Controller {
         UI.displayTopFiveSwimmersMessage();
     }
 
-    public void seniorJuniorPassivePriceFromUI(String teamName, int price, int totalPrice){
-        UI.seniorJuniorPassivePrice(teamName, price, totalPrice);
+    public void seniorJuniorPassivePriceFromUI(String teamName, int price, int totalPrice, int amount){
+        UI.seniorJuniorPassivePrice(teamName, price, totalPrice, amount);
     }
 
     public void totalAnualEarningFromUI(int totalEarning){
         UI.totalAnualEarning(totalEarning);
-    }
-
-    public void subscribtionNameAndAgeFromUI(String name, int age) {
-        UI.subscribtionNameAndAge(name, age);
     }
 
     public void createTrainerFirstErrorFromUI(){
@@ -206,16 +202,16 @@ public class Controller {
         UI.memberToChange(count, name, age, activity);
     }
 
-    public void membersWithDept(){
-        UI.membersWithDept();
+    public void membersWithDebt(){
+        UI.membersWithDebt();
     }
 
-    public void allMembersWithDept(String name, int age){
-        UI.allMembersWithDept(name, age);
+    public void allMembersWithDebt(String name, int age){
+        UI.allMembersWithDebt(name, age);
     }
 
-    public void totalDept(int dept){
-        UI.totalDept(dept);
+    public void totalDebt(int dept){
+        UI.totalDebt(dept);
     }
 
     public void showTrainer(int count, String name){
