@@ -303,4 +303,19 @@ public class UserInterface {
     public void showTrainers(int count, String name) {
         System.out.println(count + ". " + name);
     }
+
+    public void showMemberForTracking(String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm, int age){
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("Email: " + email);
+        System.out.println("Adress: " + address);
+        System.out.println("Disciplin: " + activity);
+        System.out.println("Disciplin form: " + activityForm);
+        System.out.println("Time: " + swimmingTime);
+        System.out.println("-------------------------------------");
+    }
+    public void searchForMember(){
+        System.out.println("Please enter the name you would like to search for: ");
+    }
 }

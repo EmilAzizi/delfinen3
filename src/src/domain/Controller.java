@@ -5,10 +5,8 @@ import data.Database;
 import ui.UserInterface;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
+
 public class Controller {
     boolean isRunning = true;
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
@@ -26,6 +24,8 @@ public class Controller {
             }
         } catch(IOException e){
             e.getMessage();
+        } catch(InputMismatchException a){
+            System.out.println("Stop");
         }
     }
 
@@ -44,6 +44,12 @@ public class Controller {
                     case 1 -> display(displayChoice);
                     case 2 -> display(displayChoice);
                     case 3 -> display(displayChoice);
+                    case 4 -> {
+                        UI.searchForMember();
+                        input.nextLine();
+                        String memberToFind = input.nextLine();
+                        database.trackMember(memberToFind);
+                    }
                 }
             }
             case 4 -> database.assignTrainer();
@@ -216,6 +222,9 @@ public class Controller {
 
     public void showTrainer(int count, String name){
         UI.showTrainers(count, name);
+    }
+    public void showMemberForTracking(String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm, int age){
+        UI.showMemberForTracking(name, phoneNumber, email, activity, swimmingTime, address, activityForm, age);
     }
 }
 
