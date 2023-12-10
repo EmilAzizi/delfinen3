@@ -228,5 +228,18 @@ public class Controller {
     public void showMemberForTracking(String name, int phoneNumber, String email, String activity, double swimmingTime, String address, String activityForm, int age){
         UI.showMemberForTracking(name, phoneNumber, email, activity, swimmingTime, address, activityForm, age);
     }
+
+    public void validName(){
+        UI.validName();
+    }
+    public void validDate(){
+        UI.validDate();
+    }
+    public void validNumber(){
+        UI.validNumber();
+    }
+    public void validEmail(){
+        UI.validEmail();
+    }
 }
 
