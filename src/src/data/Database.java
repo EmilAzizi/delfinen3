@@ -246,15 +246,23 @@ public class Database {
         }
     }
 
+    public void trackMember(String memberToSearch){
+        for(Member member : memberList){
+            if(member.getName().contains(memberToSearch)){
+                controller.showMemberForTracking(member.getName(), member.getPhoneNumber(), member.getEmail(), member.getActivity(), member.getSwimmingTime(), member.getAdress(), member.getActivityForm(), member.getAge());
+            }
+        }
+    }
+
     public void displayTopFiveSwimmers() {
-        int count = 0;
+        int count = -1;
             controller.displayTopFiveSwimmersMessageFromUI();
             int whichDiciplineToSortBy = input.nextInt();
         Collections.sort(controller.getMemberList(), new SwimmingTimeComparator());
         for (Member member : controller.getMemberList()) {
             if (member.getActivity().equals("competing")) {
                 count++;
-                if (count >= 5) {
+                if (count >= 6) {
                     break;
                 }
             switch (whichDiciplineToSortBy) {
@@ -288,25 +296,19 @@ public class Database {
 
     public void viewPrices() {
         calculatePrice();
-        controller.seniorJuniorPassivePriceFromUI("Senior", subscribtion.getSeniorPrice(), subscribtion.getSeniorPriceTotal());
-        for (Member member : subscribtion.getSenior()) {
-            controller.subscribtionNameAndAgeFromUI(member.getName(), member.getAge());
+        controller.seniorJuniorPassivePriceFromUI("Senior", subscribtion.getSeniorPrice(), subscribtion.getSeniorPriceTotal(), subscribtion.getSenior().size());
+        controller.seniorJuniorPassivePriceFromUI("Junior", subscribtion.getJuniorPrice(), subscribtion.getJuniorPriceTotal(),subscribtion.getJunior().size());
+        controller.seniorJuniorPassivePriceFromUI("Passive", subscribtion.getPassivePrice(), subscribtion.getPassivePriceTotal(), subscribtion.getPassive().size());
+        controller.membersWithDebt();
+        if (subscribtion.getNotActive().isEmpty()){
+            System.out.println("none");
         }
-        controller.seniorJuniorPassivePriceFromUI("Junior", subscribtion.getJuniorPrice(), subscribtion.getJuniorPriceTotal());
-        for (Member member : subscribtion.getJunior()) {
-            controller.subscribtionNameAndAgeFromUI(member.getName(), member.getAge());
-        }
-        controller.seniorJuniorPassivePriceFromUI("Passive", subscribtion.getPassivePrice(), subscribtion.getPassivePriceTotal());
-        for (Member member : subscribtion.getPassive()) {
-            controller.subscribtionNameAndAgeFromUI(member.getName(), member.getAge());
-        }
-        controller.membersWithDept();
         for(Member member : subscribtion.getNotActive()){
-            controller.allMembersWithDept(member.getName(), member.getAge());
+            controller.allMembersWithDebt(member.getName(), member.getAge());
         }
         int totalPriceAll = subscribtion.getJuniorPriceTotal() + subscribtion.getPassivePriceTotal() + subscribtion.getSeniorPriceTotal();
-        totalPriceAll = totalPriceAll + subscribtion.getDeptTotal();
-        controller.totalDept(subscribtion.getDeptTotal());
+        totalPriceAll = totalPriceAll + subscribtion.getDebtTotal();
+        controller.totalDebt(subscribtion.getDebtTotal());
 
         controller.totalAnualEarningFromUI(totalPriceAll);
     }
