@@ -38,7 +38,7 @@ public class Database {
         while(!nameIsValid){
             if(name.chars().anyMatch(Character::isDigit)){
                 nameIsValid = false;
-                System.out.println("Please enter a valid name.");
+                controller.validName();
                 name = input.nextLine();
             } else {
                 nameIsValid = true;
@@ -52,7 +52,7 @@ public class Database {
         while(!validDate){
             if(date.chars().anyMatch(Character::isLetter)){
                 validDate = false;
-                System.out.println("Please enter a validDate.");
+                controller.validDate();
                 date = input.next();
             } else {
                 validDate = true;
@@ -80,7 +80,7 @@ public class Database {
 
         controller.phoneNumberMemberFromUI();
         while (!input.hasNextInt()) {
-            System.out.println("Please enter a valid phone number");
+            controller.validNumber();
             input.next();
         }
         int number = input.nextInt();
@@ -88,7 +88,7 @@ public class Database {
         controller.emailMemberFromUI();
         String email = input.next();
         while(!email.contains("@")){
-            System.out.println("Please enter a valid email");
+            controller.validEmail();
             email = input.next();
         }
 
@@ -132,10 +132,30 @@ public class Database {
         input.nextLine();
 
         controller.whatIsTheNameOfTheTrainerFromUI();
+        boolean nameIsValid = false;
         String name = input.nextLine();
+        while(!nameIsValid){
+            if(name.chars().anyMatch(Character::isDigit)){
+                nameIsValid = false;
+                controller.validName();
+                name = input.nextLine();
+            } else {
+                nameIsValid = true;
+            }
+        }
 
         controller.whatIsTheBirthdateTrainerFromUI();
+        boolean validDate = false;
         String date = input.next();
+        while(!validDate){
+            if(date.chars().anyMatch(Character::isLetter)){
+                validDate = false;
+                controller.validDate();
+                date = input.next();
+            } else {
+                validDate = true;
+            }
+        }
         String[] birthdate = date.split("/");
         String[] checkForZero = birthdate[0].split("");
 
@@ -157,13 +177,17 @@ public class Database {
 
         controller.phoneNumberTrainerFromUI();
         while (!input.hasNextInt()) {
-            System.out.println("That's not a number!");
+            controller.validNumber();
             input.next();
         }
         int number = input.nextInt();
 
         controller.emailTrainerFromUI();
         String email = input.next();
+        while(!email.contains("@")){
+            controller.validEmail();
+            email = input.next();
+        }
 
         input.nextLine();
 

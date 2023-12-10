@@ -318,4 +318,17 @@ public class UserInterface {
     public void searchForMember(){
         System.out.println("Please enter the name you would like to search for: ");
     }
+    public void validName(){
+        System.out.println("Please enter a valid name.");
+    }
+    public void validDate(){
+        System.out.println("Please enter a valid Date.");
+    }
+    public void validNumber(){
+        System.out.println("Please enter a valid phone number");
+    }
+    public void validEmail(){
+        System.out.println("Please enter a valid email");
+    }
+
 }
