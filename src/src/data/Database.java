@@ -33,10 +33,31 @@ public class Database {
         input.nextLine();
 
         controller.whatIsTheNameOfTheMemberFromUI();
+        boolean nameIsValid = false;
         String name = input.nextLine();
+        while(!nameIsValid){
+            if(name.chars().anyMatch(Character::isDigit)){
+                nameIsValid = false;
+                System.out.println("Please enter a valid name.");
+                name = input.nextLine();
+            } else {
+                nameIsValid = true;
+            }
+        }
+
 
         controller.whatIsTheBirthdateMemberFromUI();
+        boolean validDate = false;
         String date = input.next();
+        while(!validDate){
+            if(date.chars().anyMatch(Character::isLetter)){
+                validDate = false;
+                System.out.println("Please enter a validDate.");
+                date = input.next();
+            } else {
+                validDate = true;
+            }
+        }
         String[] birthdate = date.split("/");
         String[] checkForZeroDay = birthdate[0].split("");
         String[] checkForZeroMonth = birthdate[1].split("");
@@ -58,10 +79,18 @@ public class Database {
         int year = Integer.parseInt(birthdate[2]);
 
         controller.phoneNumberMemberFromUI();
+        while (!input.hasNextInt()) {
+            System.out.println("Please enter a valid phone number");
+            input.next();
+        }
         int number = input.nextInt();
 
         controller.emailMemberFromUI();
         String email = input.next();
+        while(!email.contains("@")){
+            System.out.println("Please enter a valid email");
+            email = input.next();
+        }
 
         input.nextLine();
 
@@ -127,6 +156,10 @@ public class Database {
         int year = Integer.parseInt(birthdate[2]);
 
         controller.phoneNumberTrainerFromUI();
+        while (!input.hasNextInt()) {
+            System.out.println("That's not a number!");
+            input.next();
+        }
         int number = input.nextInt();
 
         controller.emailTrainerFromUI();

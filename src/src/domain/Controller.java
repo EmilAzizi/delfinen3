@@ -14,18 +14,20 @@ public class Controller {
     UserInterface UI = new UserInterface(this);
 
     public void run() {
-        try {
-            database.addMembersToMembersList();
-            UI.welcomeToDelfin();
-            while (isRunning) {
-                UI.mainMenu();
+        while (isRunning){
+            try {
+                database.addMembersToMembersList();
+                UI.welcomeToDelfin();
+                    UI.mainMenu();
 
-                running();
+                    running();
+            } catch (IOException e) {
+                e.getMessage();
+                input.nextLine();
+            } catch (InputMismatchException a) {
+                System.out.println("Please enter a number corresponding to the options listed.");
+                input.nextLine();
             }
-        } catch(IOException e){
-            e.getMessage();
-        } catch(InputMismatchException a){
-            System.out.println("Stop");
         }
     }
 
